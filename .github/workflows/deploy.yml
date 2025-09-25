@@ -18,8 +18,8 @@ jobs:
 
             - name: Clone repository (master branch)
               run: |
-                  if [ ! -d "/usr/local/share/typescript-new/.git" ]; then
-                    git clone --branch master https://github.com/vinayakshahdeo/projects.git /usr/local/share/projects
+                  if [ ! -d "/usr/local/share/projects/typescript-new/.git" ]; then
+                    git clone --branch master https://github.com/vinayakshahdeo/typescript-new.git /usr/local/share/projects
                   else
                     cd /usr/local/share/projects
                     git fetch origin
