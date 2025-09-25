@@ -1,0 +1,11 @@
+name: Pi Deploy
+on:
+    push:
+        branches:
+            - master
+jobs:
+    deploy:
+        runs-on: self-hosted
+        steps:
+            - uses: actions/checkout@v4
+            # Add build/test/deploy steps here
