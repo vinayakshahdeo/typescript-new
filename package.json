@@ -1,0 +1,24 @@
+{
+	"name": "typescript-new",
+	"version": "1.0.0",
+	"description": "typescript",
+	"homepage": "https://github.com/vinayakshahdeo/typescript-new#readme",
+	"bugs": {
+		"url": "https://github.com/vinayakshahdeo/typescript-new/issues"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/vinayakshahdeo/typescript-new.git"
+	},
+	"license": "MIT",
+	"author": "vinayak",
+	"type": "commonjs",
+	"main": "index.ts",
+	"scripts": {
+		"test": "echo \"Error: no test specified\" && exit 1",
+		"start:dev": "tsc -w"
+	},
+	"devDependencies": {
+		"typescript": "^5.9.2"
+	}
+}
