@@ -11,17 +11,17 @@ jobs:
         runs-on: self-hosted
         steps:
             - name: Ensure destination directory exists
-              run: mkdir -p /home/typescript-new
+              run: mkdir -p /usr/local/share/typescript-new
 
             - name: Clone repository (master branch)
               run: |
-                  if [ ! -d "/home/typescript-new/.git" ]; then
-                    git clone --branch master https://github.com/vinayakshahdeo/typescript-new.git /home/typescript-new
+                  if [ ! -d "/usr/local/share/typescript-new/.git" ]; then
+                    git clone --branch master https://github.com/vinayakshahdeo/typescript-new.git /usr/local/share/typescript-new
                   else
-                    cd /home/typescript-new
+                    cd /usr/local/share/typescript-new
                     git fetch origin
                     git reset --hard origin/master
                   fi
 
             - name: List files (check deployment)
-              run: ls -al /home/typescript-new
+              run: ls -al /usr/local/share/typescript-new
