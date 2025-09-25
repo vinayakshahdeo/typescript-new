@@ -14,7 +14,7 @@ jobs:
               run: sudo mkdir -p /usr/local/share/projects
 
             - name: Set permissions for directory
-              run: sudo chmod 777 /usr/local/share/projects
+              run: sudo chmod -R 777 /usr/local/share/projects
 
             - name: Clone repository (master branch)
               run: |
@@ -25,11 +25,5 @@ jobs:
                     git fetch origin
                     git reset --hard origin/master
                   fi
-
-            - name: Fix ownership and permissions (recursive)
-              run: |
-                  sudo chown -R root:root /usr/local/share/projects
-                  sudo chmod -R 777 /usr/local/share/projects
-
             - name: List files (check deployment)
               run: ls -al /usr/local/share/projects
