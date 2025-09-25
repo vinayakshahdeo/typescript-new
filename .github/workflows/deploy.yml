@@ -1,13 +1,27 @@
-name: Test Runner
+name: Pi Deploy
+
 on:
     push:
-        branches: [master, main]
+        branches:
+            - master
     workflow_dispatch:
 
 jobs:
-    test:
+    deploy:
         runs-on: self-hosted
         steps:
-            - uses: actions/checkout@v4
-            - name: Hello from Pi
-              run: echo "Hello from Raspberry Pi runner!"
+            - name: Ensure destination directory exists
+              run: mkdir -p /home/typescript-new
+
+            - name: Clone repository (master branch)
+              run: |
+                  if [ ! -d "/home/typescript-new/.git" ]; then
+                    git clone --branch master https://github.com/vinayakshahdeo/typescript-new.git /home/typescript-new
+                  else
+                    cd /home/typescript-new
+                    git fetch origin
+                    git reset --hard origin/master
+                  fi
+
+            - name: List files (check deployment)
+              run: ls -al /home/typescript-new
