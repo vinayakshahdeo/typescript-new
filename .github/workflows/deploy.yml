@@ -10,21 +10,15 @@ jobs:
     deploy:
         runs-on: self-hosted
         steps:
-            - name: Ensure destination directory exists
-              run: sudo mkdir -p /usr/local/share/typescript-new
-
-            - name: Set permissions for directory
-              run: sudo chmod 777 /usr/local/share/typescript-new
-
             - name: Clone repository (master branch)
               run: |
-                  if [ ! -d "/usr/local/share/typescript-new/.git" ]; then
-                    git clone --branch master https://github.com/vinayakshahdeo/typescript-new.git /usr/local/share/typescript-new
+                  if [ ! -d "/home/vinayak/projects/.git" ]; then
+                    git clone --branch master https://github.com/vinayakshahdeo/typescript-new.git /home/vinayak/projects
                   else
-                    cd /usr/local/share/typescript-new
+                    cd /home/vinayak/projects
                     git fetch origin
                     git reset --hard origin/master
                   fi
 
             - name: List files (check deployment)
-              run: ls -al /usr/local/share/typescript-new
+              run: ls -al /home/vinayak/projects
