@@ -1,11 +1,13 @@
-name: Pi Deploy
+name: Test Runner
 on:
     push:
-        branches:
-            - master
+        branches: [master, main]
+    workflow_dispatch:
+
 jobs:
-    deploy:
+    test:
         runs-on: self-hosted
         steps:
             - uses: actions/checkout@v4
-            # Add build/test/deploy steps here
+            - name: Hello from Pi
+              run: echo "Hello from Raspberry Pi runner!"
