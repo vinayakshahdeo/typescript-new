@@ -1,4 +1,4 @@
-name: Pi Deploy
+name: Pi Deploys
 
 on:
     push:
@@ -9,7 +9,16 @@ on:
 jobs:
     deploy:
         runs-on: self-hosted
+        defaults:
+            run:
+                working-directory: /projects
         steps:
+            - name: Create test file
+              run: echo "Hello world" > /projects/test.txt
+
+            - name: Check out repository
+              uses: actions/checkout@v4
+
             - name: Ensure destination directory exists
               run: sudo mkdir -p /usr/local/share/projects
 
@@ -25,5 +34,6 @@ jobs:
                     git fetch origin
                     git reset --hard origin/master
                   fi
+
             - name: List files (check deployment)
               run: ls -al /usr/local/share/projects
