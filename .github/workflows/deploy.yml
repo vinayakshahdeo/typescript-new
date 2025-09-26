@@ -1,30 +1,29 @@
-name: Merge and Log File Updates
+name: Pi Deploy
 
 on:
     push:
         branches:
             - master
+    workflow_dispatch:
 
 jobs:
-    merge-projects:
+    deploy:
         runs-on: self-hosted
         steps:
-            - name: Install libatomic1 for ARM/Node
+            - name: Ensure destination directory exists
+              run: sudo mkdir -p /usr/local/share/projects
+
+            - name: Set permissions for directory
+              run: sudo chmod -R 777 /usr/local/share/projects
+
+            - name: Clone repository (master branch)
               run: |
-                  sudo apt-get update
-                  sudo apt-get install -y libatomic1
-
-            - name: Checkout repository into /usr/local/share/projects
-              uses: actions/checkout@v4
-              with:
-                  path: /usr/local/share/projects
-                  fetch-depth: 0
-
-            # List updated files and save to log
-            - name: Log recently written files
-              run: |
-                  find /usr/local/share/projects -type f -mmin -5 | sort | tee /usr/local/share/projects/updated_files.log
-
-            # Optionally, print the log file
-            - name: Show update log
-              run: cat /usr/local/share/projects/updated_files.log
+                  if [ ! -d "/usr/local/share/projects/.git" ]; then
+                    git clone --branch master https://github.com/vinayakshahdeo/typescript-new.git /usr/local/share/projects
+                  else
+                    cd /usr/local/share/projects
+                    git fetch origin
+                    git reset --hard origin/master
+                  fi
+            - name: List files (check deployment)
+              run: ls -al /usr/local/share/projects
