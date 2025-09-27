@@ -16,6 +16,9 @@ jobs:
             - name: Set permissions for directory
               run: sudo chmod -R 777 /usr/local/share/projects
 
+            - name: ECHO WORKING DIRECTORY
+              run: echo "hello world"
+
             - name: Clone repository (master branch)
               run: |
                   if [ ! -d "/usr/local/share/projects/.git" ]; then
