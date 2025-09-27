@@ -16,9 +16,11 @@
 	"main": "index.ts",
 	"scripts": {
 		"test": "echo \"Error: no test specified\" && exit 1",
-		"start:dev": "tsc -w"
+		"start:dev": "tsc -w",
+		"dev": "nodemon index.js"
 	},
 	"devDependencies": {
+		"nodemon": "^3.1.10",
 		"typescript": "^5.9.2"
 	}
 }
