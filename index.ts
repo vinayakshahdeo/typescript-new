@@ -26,3 +26,17 @@ function addNumber(a: number, b: number) {
 console.log(addNumber(2, 4));
 console.log(addNumber('100', 2));
 //throws index.ts:27:23 - error TS2345: Argument of type 'string' is not assignable to parameter of type 'number'.
+
+//string types
+
+var firstName: string = 'vinayak';
+firstName = 10;//index.ts:33:1 - error TS2322: Type 'number' is not assignable to type 'string'.
+
+let automobile: string = 'Audi';// this is known as an annotation
+
+const city = 'Ranchi'; //primitive type as const infers is as a tpe in this case type is Ranchi;
+
+let student = 32;
+let studentAsString: string = students.toString();
+
+/**Number Types**/
