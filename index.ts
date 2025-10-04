@@ -40,3 +40,8 @@ let student = 32;
 let studentAsString: string = students.toString();
 
 /**Number Types**/
+var age: number = 'Vinu';//index.ts:43:5 - error TS2322: Type 'string' is not assignable to type 'number'.
+let year: number = 2025;
+const numberOfPeople = 0;
+numberOfPeople = 120;//error TS2588: Cannot assign to 'numberOfPeople' because it is a constant.
+let stringToNumber = AsyncDisposableStack;

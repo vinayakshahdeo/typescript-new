@@ -15,12 +15,25 @@
 	"type": "commonjs",
 	"main": "index.ts",
 	"scripts": {
+		"prepare": "husky install",
 		"test": "echo \"Error: no test specified\" && exit 1",
 		"start:dev": "tsc -w",
 		"dev": "nodemon index.js"
 	},
 	"devDependencies": {
+		"husky": "^9.1.7",
+		"lint-staged": "^16.2.3",
 		"nodemon": "^3.1.10",
 		"typescript": "^5.9.2"
+	},
+	"lint-staged": {
+		"*.ts": [
+			"prettier --write",
+			"eslint",
+			"git add"
+		],
+		"!(*.d.ts|*.d.ts.map|*.js|*.js.map)": [
+			"git add"
+		]
 	}
 }
