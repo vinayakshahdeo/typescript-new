@@ -29,8 +29,7 @@
 	"lint-staged": {
 		"*.ts": [
 			"prettier --write",
-			"eslint",
-			"git add"
+			"eslint"
 		],
 		"!(*.d.ts|*.d.ts.map|*.js|*.js.map)": [
 			"git add"
