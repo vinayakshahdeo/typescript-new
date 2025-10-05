@@ -15,12 +15,18 @@
 	"type": "commonjs",
 	"main": "index.ts",
 	"scripts": {
+		"prepare": "husky",
 		"test": "echo \"Error: no test specified\" && exit 1",
 		"start:dev": "tsc -w",
-		"dev": "nodemon index.js"
+		"dev": "nodemon index.js",
+		"lint-staged": "lint-staged"
 	},
 	"devDependencies": {
+		"eslint-config-prettier": "^10.1.8",
+		"husky": "^9.1.7",
+		"lint-staged": "^16.2.3",
 		"nodemon": "^3.1.10",
+		"prettier": "^3.6.2",
 		"typescript": "^5.9.2"
 	}
 }

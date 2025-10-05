@@ -137,3 +137,15 @@ dist
 # Vite logs files
 vite.config.js.timestamp-*
 vite.config.ts.timestamp-*
+
+# Ignore JavaScript files
+*.js
+
+# Ignore JavaScript sourcemaps
+*.js.map
+
+# Ignore TypeScript declaration files
+*.d.ts
+
+# Ignore TypeScript declaration sourcemaps
+*.d.ts.map
