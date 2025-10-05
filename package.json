@@ -15,10 +15,11 @@
 	"type": "commonjs",
 	"main": "index.ts",
 	"scripts": {
-		"prepare": "husky install",
+		"prepare": "husky",
 		"test": "echo \"Error: no test specified\" && exit 1",
 		"start:dev": "tsc -w",
-		"dev": "nodemon index.js"
+		"dev": "nodemon index.js",
+		"lint-staged": "lint-staged"
 	},
 	"devDependencies": {
 		"eslint-config-prettier": "^10.1.8",
@@ -27,11 +28,5 @@
 		"nodemon": "^3.1.10",
 		"prettier": "^3.6.2",
 		"typescript": "^5.9.2"
-	},
-	"lint-staged": {
-		"--./!(*.d.ts|*.d.ts.map|*.js|*.js.map)": [
-			"prettier --write",
-			"eslint"
-		]
 	}
 }
