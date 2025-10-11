@@ -18,7 +18,7 @@ function addNumbers(a, b) {
 }
 
 console.log(addNumbers(2, 4)); //6
-// console.log(addNumbers('100', 2)); // this will not throw error in js but in ts it will throw error as below
+console.log(addNumbers('100', 2)); // this will not throw error in js but in ts it will throw error as below
 
 function addNumber(a: number, b: number) {
   return a + b;
