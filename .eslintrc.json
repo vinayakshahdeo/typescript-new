@@ -13,6 +13,15 @@
   },
   "rules": {
     // Customize ESLint rules below:
+    "@typescript-eslint/ban-ts-comment": [
+      "error",
+      {
+        "ts-ignore": false, // <-- This allows usage of @ts-ignore
+        "ts-nocheck": true,
+        "ts-check": true,
+        "ts-expect-error": true
+      }
+    ],
     "semi": ["error", "always"],
     "quotes": ["error", "single"],
     "no-unused-vars": "warn",
