@@ -1,0 +1,31 @@
+{
+  "env": {
+    "browser": true,
+    "es2021": true,
+    "node": true
+  },
+  "extends": ["eslint:recommended", "plugin:@typescript-eslint/recommended", "prettier"],
+  "plugins": ["@typescript-eslint"],
+  "parser": "@typescript-eslint/parser",
+  "parserOptions": {
+    "ecmaVersion": "latest",
+    "sourceType": "module"
+  },
+  "rules": {
+    // Customize ESLint rules below:
+    "@typescript-eslint/ban-ts-comment": [
+      "error",
+      {
+        "ts-ignore": false, // <-- This allows usage of @ts-ignore
+        "ts-nocheck": true,
+        "ts-check": true,
+        "ts-expect-error": true
+      }
+    ],
+    "semi": ["error", "always"],
+    "quotes": ["error", "single"],
+    "no-unused-vars": "warn",
+    "eqeqeq": ["error", "always"],
+    "@typescript-eslint/no-explicit-any": "off"
+  }
+}

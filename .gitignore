@@ -149,3 +149,6 @@ vite.config.ts.timestamp-*
 
 # Ignore TypeScript declaration sourcemaps
 *.d.ts.map
+
+#remove local branches which dont exist in remote
+delete-local-branches.sh
