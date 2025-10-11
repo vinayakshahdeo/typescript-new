@@ -51,3 +51,4 @@ console.log(numberOfPeople);
 // numberOfPeople = 120;//error TS2588: Cannot assign to 'numberOfPeople' because it is a constant.
 const stringToNumber = '';
 console.log(stringToNumber);
+console.log('first');
