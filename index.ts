@@ -75,7 +75,7 @@ let userRole: null;
 // console.log(userRole);
 //now to fix this we can do
 userRole = null;
-// console.log('userRole:', userRole);
+console.log('userRole:', userRole);
 // console.log(user === userRole);//false
 // if (!user) {
 // 	console.log('This statement is true because user is undefined');
