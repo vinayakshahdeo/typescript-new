@@ -75,7 +75,7 @@ let userRole: null;
 // console.log(userRole);
 //now to fix this we can do
 userRole = null;
-console.log('userRole:', userRole);
+// console.log('userRole:', userRole);
 // console.log(user === userRole);//false
 // if (!user) {
 // 	console.log('This statement is true because user is undefined');
@@ -83,3 +83,21 @@ console.log('userRole:', userRole);
 // if (!userRole) {
 // 	console.log('This statement is true because userRole is undefined');
 // }
+
+/**Big Int Type**/
+const safeInt = Number.MAX_SAFE_INTEGER;
+console.log('maxNumber:', safeInt);
+const safeIntPlusOne = safeInt + 1;
+const safeIntPlusTwo = safeInt + 2;
+console.log(safeIntPlusOne);
+console.log(safeIntPlusTwo); //remains same as max safe integer
+let bigInt = BigInt(1234);
+let bigInt2 = 1234532424n;
+console.log(bigInt);
+console.log(bigInt2);
+let b = bigInt2 - bigInt;
+console.log(b);
+// b=1234.223n;//error TS1362: A bigint literal must be an integer.
+// let f = Math.log(bigInt2); //error TS2345: Argument of type 'bigint' is not assignable to parameter of type 'number'.
+
+/**Symbol Type**/
