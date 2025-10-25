@@ -48,12 +48,12 @@ const studentAsArray: string[] = students.map((student) => JSON.stringify(studen
 // var age: number = 'Vinu';//index.ts:43:5 - error TS2322: Type 'string' is not assignable to type 'number'.
 const year = 2025;
 let age = 39;
-console.log(year);
+// console.log(year);
 const numberOfPeople = 0;
 // console.log(numberOfPeople);
 // numberOfPeople = 120;//error TS2588: Cannot assign to 'numberOfPeople' because it is a constant.
 const stringToNumber: number = parseInt('1985');
-console.log(stringToNumber);
+// console.log(stringToNumber);
 
 /**Boolean Types**/
 const isStudent = false; //automatically infers as boolean
@@ -101,3 +101,15 @@ let b = bigInt2 - bigInt;
 // let f = Math.log(bigInt2); //error TS2345: Argument of type 'bigint' is not assignable to parameter of type 'number'.
 
 /**Symbol Type**/
+let id = Symbol(1234);
+let alphabeticId = Symbol('id');
+
+let users = {
+  name: 'mark',
+  [id]: '1234',
+  getId() {
+    return this[id];
+  },
+};
+console.log(users.id); //undefined
+console.log(users.getId()); //1234
