@@ -111,5 +111,5 @@ let users = {
     return this[id];
   },
 };
-console.log(users.id); //undefined
+// console.log(users.id); //undefined
 console.log(users.getId()); //1234
