@@ -52,3 +52,18 @@ function addNumbers(n1: number, n2: number) {
 //inferered as (n1: number, n2: number) => number hence duck typing since finalResult is a number
 let finalResult = addNumbers(10, 20);
 console.log(finalResult);
+
+/*union types*/
+let mixedType: number | string;
+mixedType = 20;
+console.log(mixedType);
+mixedType = 'vinayak';
+console.log(mixedType);
+// mixedType = false;//error TS2322: Type 'boolean' is not assignable to type 'string | number'.
+function print(input: string | undefined) {
+	if (input)
+		console.log(input);
+	console.log('Please give input to print');
+}
+print();
+print('Hello TypeScript');
