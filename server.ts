@@ -41,3 +41,14 @@ console.log(today);
 
 let sym: CustomSymbol = Symbol('my symbol');//type alias used as typescript converted it to symbol
 console.log(sym);
+
+/*duck typing*/
+//above code is a declaration of type aliases in TypeScript, which allows you to create custom names for existing types. This can enhance code readability and maintainability by providing more meaningful names for types used in your code.
+
+//duck typing is a concept in TypeScript (and other programming languages) where the type or class of an object is determined by the methods and properties it has, rather than its actual type or class. In other words, "if it looks like a duck and quacks like a duck, it's a duck."
+function addNumbers(n1: number, n2: number) {
+	return n1 + n2;
+}
+//inferered as (n1: number, n2: number) => number hence duck typing since finalResult is a number
+let finalResult = addNumbers(10, 20);
+console.log(finalResult);
