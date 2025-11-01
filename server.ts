@@ -60,7 +60,7 @@ console.log(mixedType);
 mixedType = 'vinayak';
 console.log(mixedType);
 // mixedType = false;//error TS2322: Type 'boolean' is not assignable to type 'string | number'.
-function print(input: string | undefined) {
+function print(input?: string | undefined) {
 	if (input)
 		console.log(input);
 	console.log('Please give input to print');
