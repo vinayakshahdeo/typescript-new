@@ -10,5 +10,5 @@ jobs:
   deploy:
     runs-on: self-hosted
     steps:
-      - name: ECHO WORKING DIRECTORY
+      - name: test secondary test file
         run: echo "hello world"
