@@ -11,4 +11,4 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - name: Hello from CI
-        run: echo "Hello from CI!"
+        run: echo "Hello from test.yml!"
