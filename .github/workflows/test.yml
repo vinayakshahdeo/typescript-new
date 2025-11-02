@@ -1,6 +1,6 @@
 name: Test Runner
 on:
-        branches: [master]
+        branches: [master, main]
   workflow_dispatch:
 
 jobs:
