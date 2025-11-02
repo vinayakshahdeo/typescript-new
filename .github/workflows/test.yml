@@ -1,0 +1,14 @@
+name: Test Runner
+
+on:
+  push:
+      branches: [master, main]
+    workflow_dispatch:
+
+jobs:
+  test:
+    runs-on: self-hosted
+    steps:
+      - uses: actions/checkout@v4
+      - name: Hello from CI
+        run: echo "Hello from CI!"
