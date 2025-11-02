@@ -1,13 +1,12 @@
 name: Test Runner
 on:
-    push:
-        branches: [master, main]
-    workflow_dispatch:
+        branches: [master]
+  workflow_dispatch:
 
 jobs:
-    test:
-        runs-on: self-hosted
-        steps:
-            - uses: actions/checkout@v4
-            - name: Hello from Pi
-              run: echo "Hello from Raspberry Pi runner!"
+  test:
+    runs-on: self-hosted
+    steps:
+      - uses: actions/checkout@v4
+      - name: Hello from Pi
+        run: echo "Hello from Raspberry Pi runner!"
