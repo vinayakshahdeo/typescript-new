@@ -1,14 +1,14 @@
-name: Test Runner
+name: Pi Test
 
 on:
   push:
-    branches: [master, main]
+    branches:
+      - master
   workflow_dispatch:
 
 jobs:
-  test:
+  deploy:
     runs-on: self-hosted
     steps:
-      - uses: actions/checkout@v4
-      - name: Hello from CI
-        run: echo "Hello from test.yml!"
+      - name: ECHO WORKING DIRECTORY
+        run: echo "hello world"
