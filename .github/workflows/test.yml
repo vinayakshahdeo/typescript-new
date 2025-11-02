@@ -2,8 +2,8 @@ name: Test Runner
 
 on:
   push:
-      branches: [master, main]
-    workflow_dispatch:
+    branches: [master, main]
+  workflow_dispatch:
 
 jobs:
   test:
