@@ -41,3 +41,19 @@ interface MyInterface {
 /* strictly typing arrays */
 let myArray: Array<number> = [1, 2, 3];
 let numberArray: number[] = [4, 5, 6];
+let stringArray: Array<string> = ['a', 'b', 'c'];
+let booleanArray: boolean[] = [true, false, true];
+let mixedArray: Array<number | string | boolean> = [1, 'two', 3, true, 'four'];
+let mixedTypeArray: (number | string | boolean)[] = [5, 'six', false, 7, 'eight'];
+
+type airplane = {
+	model: string;
+	year: number;
+	isActive: boolean;
+};
+//array of airplane objects strictly typed
+let airplaneArray: airplane[] = [
+	{ model: 'Boeing 747', year: 1998, isActive: true },
+	{ model: 'Airbus A320', year: 2005, isActive: false }
+];
+/* Tuples */
