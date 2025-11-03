@@ -210,3 +210,56 @@ let hybridAnimal: DogAndCatUnion = {
 	color: 'Gray'
 };//need to have all properties of either Dog or Cat to avoid error comment out breed or color to see the error
 console.log(hybridAnimal);
+
+/* Discriminating Union Types using index signature  */
+
+type NetworkLoadingState = {
+	state: "loading";
+};
+
+type NetworkFailedState = {
+	state: "failed";
+	code: number;
+};
+
+type NetworkSuccessState = {
+	state: "success";
+	response: { title: string; duration: number; summary: string; };
+};
+
+type NetworkState = NetworkLoadingState | NetworkFailedState | NetworkSuccessState;
+
+function handleNetworkState(state: NetworkState) {
+	let response: string = '';
+	switch (state.state) {
+		case "loading":
+			response = "The network request is loading...";
+			break;
+		case "failed":
+			response = `Network request failed with code: ${state.code}`;
+			break;
+		case "success":
+			response = `Network request succeeded with response: state.response`;
+			break;
+	}
+	return response;
+}
+console.log(handleNetworkState({ state: 'loading' }));
+console.log(handleNetworkState({ state: 'failed', code: 404 }));
+console.log(handleNetworkState({ state: 'success', response: { title: 'TypeScript Guide', duration: 120, summary: 'A comprehensive guide to TypeScript.' } }));
+
+/* object intersection types */
+//refer cat and dog types above
+
+type Pet = Cat & Dog;
+
+let myPet: Pet = {
+	name: 'Fluffy',
+	barks: true,
+	wags: true,
+	meows: true,
+	scratches: false,
+	breed: 'Husky',
+	color: 'Silver'
+};//need to have all properties of both Dog and Cat to avoid error basically it takes common properties of both types and creates a new type with all properties
+console.log(myPet);
