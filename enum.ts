@@ -57,3 +57,39 @@ let airplaneArray: airplane[] = [
 	{ model: 'Airbus A320', year: 2005, isActive: false }
 ];
 /* Tuples */
+// tuples are fixed-length arrays with specified types for each element
+/* problem statement create a strictly typed Array of fixed length and fixed values*/
+// let tupleExample: (string | number | boolean)[] = [1, 'Hello', true];// doesn't enforce fixed length and types
+//correct way to define tuple
+
+let tupleExample: [number, string, boolean] = [1, 'Hello', true];
+// tupleExample.push(4); // Error: Tuple type '[number, string, boolean]' of length '3' has no element at index '3'.
+// console.log(tupleExample); //[1, 'Hello', true]
+let tupleExample2: [string, number, string?] = ['Age', 30];// added an optional element to the end
+// tupleExample2.push('years');// now we can add the optional element
+//try adding beyond optional element
+// tupleExample2.push('extra');// Error: Tuple type '[string, number, string?]' of length '2' has no element at index '3'.
+
+//adding a wrong type in place of optional element
+// tupleExample2.push(true);// Error: Argument of type 'boolean' is not assignable to parameter of type 'string | undefined'.
+
+type Student = {
+	name: string;
+	age: number;
+	isEnrolled: boolean;
+};
+// type ListOfStudents = [number, string, ...Student[],...number[]]; //rest can only be used with last element of tuple as it can take variable number of elements but doest enforce fixed length
+type ListOfStudents = [number, string, ...Student[]]; //tuple of 3 Student objects
+
+let studentsList: ListOfStudents = [
+	3,
+	'Class A',
+	{ name: 'Alice', age: 20, isEnrolled: true },
+	{ name: 'Bob', age: 22, isEnrolled: false },
+	{ name: 'Charlie', age: 21, isEnrolled: true }
+];
+// let studentsList: ListOfStudents = [
+// 	3,
+// 	'Class A'
+// ];// this also works as only first two elements are mandatory and rest operator type becomes optional by default and can be used at any location of the tuple
+// console.log(studentsList);
