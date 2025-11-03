@@ -46,3 +46,23 @@ let car: Car = {
 };
 // console.log(car);
 // car = [];//Error: Type 'any[]' is not assignable to type 'Car'.
+//strict object type checking
+// let post: { title: string; content: string; date: Date; } = {
+// 	title: 'this is a blog post',
+// 	content: 'this is the content of the blog post',
+// 	date: new Date()
+// };
+// console.log(post);
+type Post = {
+	title: string;
+	content: string;
+	date: Date;
+};
+
+let post: Post = {
+	title: 'this is a blog post',
+	content: 'this is the content of the blog post',
+	date: new Date()
+};
+
+console.log(post);
