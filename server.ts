@@ -162,7 +162,7 @@ enum AmbientEnum {
 	Gamma
 }
 let ambientValue: AmbientEnum = AmbientEnum.Beta;
-console.log({ ambientValue }); //1
+// console.log({ ambientValue }); //1
 
 /*type casting*/
 let fName = <any>'vinayak';//type is any string got typecasted as any
@@ -181,5 +181,5 @@ let oldAge = 39 as const;
 type CustomAge = typeof oldAge extends number ? 39 : Number;
 oldAge += 200;
 let newAge = oldAge + 1;//newAge is of type number not 40 as oldAge is typecasted as const
-console.log(newAge);
+// console.log(newAge);
 let testAge: CustomAge = 40;//error TS2322: Type '40' is not assignable to type '39'.
