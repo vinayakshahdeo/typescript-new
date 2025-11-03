@@ -182,4 +182,4 @@ type CustomAge = typeof oldAge extends number ? 39 : Number;
 oldAge += 200;
 let newAge = oldAge + 1;//newAge is of type number not 40 as oldAge is typecasted as const
 // console.log(newAge);
-let testAge: CustomAge = 40;//error TS2322: Type '40' is not assignable to type '39'.
+// let testAge: CustomAge = 40;//error TS2322: Type '40' is not assignable to type '39'.
