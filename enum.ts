@@ -5,7 +5,7 @@ enum Color {
 	Yellow = 8,
 }
 const arr: ReadonlyArray<Color> = [Color.Red, Color.Blue, Color.Green];
-console.log(arr); // Output: [1, 2, 4]
+// console.log(arr); // Output: [1, 2, 4]
 
 let myObject: { [x: string]: number; } = {};
 myObject["key"] = 42;
@@ -16,7 +16,7 @@ type MyEnum =
 	| "B"
 	| "C";
 const myEnums: MyEnum[] = ["A", "B", "C"];
-console.log(myEnums); // Output: ["A", "B", "C"]
+// console.log(myEnums); // Output: ["A", "B", "C"]
 
 interface MyInterface {
 	name: string;
@@ -25,7 +25,7 @@ const myInterfaceArray: ReadonlyArray<MyInterface> = [
 	{ name: "John" },
 	{ name: "Jane" }
 ];
-console.log(myInterfaceArray);
+// console.log(myInterfaceArray);
 
 type MyComputedEnum =
 	| 1
@@ -93,3 +93,10 @@ let studentsList: ListOfStudents = [
 // 	'Class A'
 // ];// this also works as only first two elements are mandatory and rest operator type becomes optional by default and can be used at any location of the tuple
 // console.log(studentsList);
+/* Read Only Array */
+let readOnlyArray: ReadonlyArray<number> = [1, 2, 3, 4, 5];
+let readonlyArray2: readonly number[] = [6, 7, 8, 9, 10];
+// number.push(6); // Error: Property 'push' does not exist on type 'readonly number[]'.
+// /*  Read Only Tuple  */
+let readOnlyTuple: readonly [string, number] = ['Age', 25];
+// readOnlyTuple[0] = 'New Age'; // Error: Cannot assign to '0' because it is a read-only property.
