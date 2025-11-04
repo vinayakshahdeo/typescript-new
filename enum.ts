@@ -100,3 +100,14 @@ let readonlyArray2: readonly number[] = [6, 7, 8, 9, 10];
 // /*  Read Only Tuple  */
 let readOnlyTuple: readonly [string, number] = ['Age', 25];
 // readOnlyTuple[0] = 'New Age'; // Error: Cannot assign to '0' because it is a read-only property.
+type ReadOnlyTupleType = readonly [string, 'male' | 'female', number];
+let personInfo: ReadOnlyTupleType = ['John Doe', 'male', 28];
+// personInfo[1] = 'other'; // Error: Cannot assign to '1' because it is a read-only property.
+/* objects with specific property types*/
+/* logged in late at night so adding this last example */
+type Person = {
+	name: string;
+	age: number;
+};
+const employee: Person = { name: "John Doe", age: 30 };
+console.log(personInfo);
