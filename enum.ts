@@ -128,3 +128,109 @@ type ReadOnlyTupleType2 = readonly [string, number]; //This creates a new type t
 const personTuple: ReadOnlyTupleType2 = ['Alice', 25];
 // console.log(numbersArray);
 // console.log(personTuple);
+/* ENUMS */
+enum Direction {
+	North,
+	East,
+	South,
+	West
+}
+let myDirection: Direction = Direction.North;
+// console.log(myDirection); // Output: 0 Acts as Index Value which can't be changed
+// Direction.North = 'North'; // Error: Cannot assign to 'North' because it is a read-only property.
+
+enum Direction2 {
+	Up = 1,
+	Down,
+	Left,
+	Right
+}
+// console.log(Direction2.Right);// Output: 4
+enum Roles {
+	Admin = 'ADMIN',
+	User = 'USER',
+	Guest = 'GUEST',
+	Author = 'Author'
+}
+
+type Person = {
+	name: string;
+	role: Roles;
+	email: string;
+	password: string;
+};
+let myRole: Roles = Roles.Admin;
+// console.log(myRole); // Output: 'ADMIN'
+let person: Person = {
+	name: 'John Doe',
+	role: Roles.User,
+	email: 'john@example.com',
+	password: 'password'
+};
+// console.log(person); // Output: { name: 'John Doe', role: 'USER', email:'john@example.com, password: 'password' }
+// * Enums can be hetrogeneous */
+enum Direction3 {
+	Up = 1,
+	East = 'EAST',
+	South = 3,
+	West = 'WEST'
+}
+let anotherDirection: Direction3 = Direction3.East;
+// console.log(anotherDirection); // Output: 'EAST'
+
+/* enums compilation */
+enum Status {
+	Active,
+	Inactive,
+	Pending
+}
+let userStatus: Status = Status.Active;
+// console.log(userStatus); // Output: 0 check js file for compiled code
+
+/* Enums vs Objects */
+
+const enum Edirection {//not compiled to JS code as an object to be used for very large enums to reduce runtime overhead
+	Up,
+	Down,
+	Left,
+	Right,
+};
+let eDirection: Edirection = Edirection.Left;
+
+const oDirection = {
+	Up: 0,
+	Down: 1,
+	Left: 2,
+	Right: 3,
+} as const;// these properties are readonly and can't be changed
+// oDirection.Left = 5; // Error: Cannot assign to 'Left' because it is a read-only property.
+/* nested enums */
+enum Epermission {
+	Read = 1 << 0, // 1
+	Write = 1 << 1, // 2
+	Execute = Read << Write, // 4
+	Edit = Write | Execute, // 6 | acts as addition
+}
+// console.log(Epermission.Execute);// Output: 4
+// console.log(Epermission.Edit);// Output: 6
+
+/* enum unions */
+
+enum Shapes {
+	Circle = 'Circle',
+	Square = 'Square'
+};// string enums
+
+type Circle = { kind: Shapes.Circle, radius: number; };// union type for circle objects
+type Square = { kind: Shapes.Square, sideLength: number; }; // union for type objects square
+
+// let circle: Circle = { kind: Shapes.Square, radius: 10 };//enums are acting as type guards here hence wont allow wrong assignment
+function printShapeInfo(shape: Shapes): void {
+	console.log(shape);
+}
+const myCircle: Circle = { kind: Shapes.Circle, radius: 10 };
+const mySquare: Square = { kind: Shapes.Square, sideLength: 5 };
+printShapeInfo(myCircle.kind);
+//printShapeInfo('rectangle');// Error: Argument of type '"rectangle"' is not assignable to parameter of type 'Shapes'.
+printShapeInfo('rectangle' as Shapes); // Using type assertion to bypass type checking (not recommended)
+
