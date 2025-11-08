@@ -109,22 +109,22 @@ type ReadOnlyPersonTuple = readonly [string, string, number];
 
 const employee: ReadOnlyPersonTuple = ['John Doe', 'Male', 30];
 // employee[0] = 'Jane Doe'; // Error: Cannot assign to '0' because it is a read-only property.
-console.log(personInfo);
+// console.log(personInfo);
 
 type ReadOnlyName = string;
 const myName: ReadOnlyName = 'Alice';
 let anotherName = myName.toUpperCase();
-console.log({ myName, anotherName });
+// console.log({ myName, anotherName });
 //teaching moment: primitive types like string, number, boolean are immutable in nature in JavaScript/TypeScript. So even if we declare a variable with const or let, the value itself cannot be changed. However, we can create new variables based on the original value, as shown in the example above.
 // myName = 'Bob'; // Error: Cannot assign to 'myName' because it is a constant or a read-only variable.
 // myName[0] = 'A'; console.log(myName); // No error, but this does not change the original string as strings are immutable in JavaScript/TypeScript
 //readonly strings and readonly arrays
 type ReadOnlyString = Readonly<string>; // This creates a new type is a-only version of the type.
 let greeting: ReadOnlyString = 'Hello, World!';
-console.log(greeting);
-type ReadOnlyArray2<> = ReadonlyArray<string | number>; // This creates a new that represents an array with read-only elements and a specific type T.
+// console.log(greeting);
+type ReadOnlyArray2 = ReadonlyArray<string | number>; // This creates a new type that represents an array with read-only elements.
 const numbersArray: ReadOnlyArray2 = [1, 2, 3, 4, 'John Doe'];
-type ReadOnlyTupleType2 = readonly [string, number]; //This creates a new type that represents a tuple with a specific length and types for element each
+type ReadOnlyTupleType2 = readonly [string, number]; //This creates a new type that represents a tuple with a specific length and types for each element
 const personTuple: ReadOnlyTupleType2 = ['Alice', 25];
-console.log(numbersArray);
-console.log(personTuple);
+// console.log(numbersArray);
+// console.log(personTuple);
