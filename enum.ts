@@ -117,3 +117,4 @@ let anotherName = myName.toUpperCase();
 console.log({ myName, anotherName });
 //teaching moment: primitive types like string, number, boolean are immutable in nature in JavaScript/TypeScript. So even if we declare a variable with const or let, the value itself cannot be changed. However, we can create new variables based on the original value, as shown in the example above.
 // myName = 'Bob'; // Error: Cannot assign to 'myName' because it is a constant or a read-only variable.
+// myName[0] = 'A'; console.log(myName); // No error, but this does not change the original string as strings are immutable in JavaScript/TypeScript
