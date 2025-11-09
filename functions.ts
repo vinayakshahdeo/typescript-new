@@ -55,4 +55,66 @@ function convertAgeToMonths(person: Person): Person {
 	}
 	return person;
 }
-console.log(convertAgeToMonths(person1));
+// console.log(convertAgeToMonths(person1));
+
+type GreetFunction = (arg0: string) => string;
+
+const greet: GreetFunction = (name = 'Guest') => `Hello, ${name}!`;
+
+greet('');
+greet('John');
+
+type AreaFunction = (arg0: number, arg1?: number) => number;
+const calculateArea: AreaFunction = (width, height = 10) => width * height;
+
+calculateArea(5);
+calculateArea(5, 20);
+
+type StatusFunction = (arg0?: boolean) => string;
+/* named function */
+const statusNamed: StatusFunction = function (isActive = true) {
+	return isActive ? 'Active' : 'Inactive';
+};
+
+/* arrow function  */
+const statusArrow: StatusFunction = (isActive = true) => isActive ? 'Active' : 'Inactive';
+
+/* As a higher-order function (returns a StatusFunction): */
+function makeStatusFunction(defaultStatus: boolean): StatusFunction {
+	return (isActive = defaultStatus) => isActive ? 'Active' : 'Inactive';
+}
+const customStatus = makeStatusFunction(false);
+
+/* inline function */
+
+const inlineStatus: StatusFunction = function (active) {
+	return active ? 'Active' : 'Inactive';
+};
+
+/* Using a class with a method matching StatusFunction: */
+
+class StatusChecker {
+	getStatus: StatusFunction = (isActive = true) => isActive ? 'Active' : 'Inactive';
+}
+const checker = new StatusChecker();
+
+/* function with Objects */
+
+type GreetingFunction = (greeting: string) => string;
+type Person2 = {
+	name: string,
+	age: number,
+	greet: GreetingFunction;
+	// greet: (greeting: string) => string;
+	//greet:Function // not strictly typed
+};
+
+const person2: Person2 = {
+	name: 'John Doe',
+	age: 30,
+	greet: (greeting = 'Hi!') => {
+		return `${greeting} ${person2.name}`;
+	}
+};
+
+console.log(person2.greet('Hello'));
