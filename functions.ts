@@ -114,7 +114,11 @@ const person2: Person2 = {
 	age: 30,
 	greet: (greeting = 'Hi!') => {
 		return `${greeting} ${person2.name}`;
-	}
+	},
+	// greet: function (this: Person2, greeting = 'Hi!') {
+	// 	return `${greeting} ${this.name}`;
+	// },
 };
 
-console.log(person2.greet('Hello'));
+// console.log(person2.greet('Hello'));
+
