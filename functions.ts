@@ -125,11 +125,11 @@ const person2: Person2 = {
 const students = ['Alice', 'Bob', 'Mark'];
 
 students.map((student) => {
-	console.log(`Student name is: ${student}`);
+	// console.log(`Student name is: ${student}`);
 });
 /* correctly infered as anonymous function by ts */
 students.map(function (student) {
-	console.log(`Student2 name is: ${student}`);
+	// console.log(`Student2 name is: ${student}`);
 	return student;
 });
 
@@ -190,3 +190,23 @@ async function returnUser(age: number): Promise<User> {
 	return Promise.resolve({ name: 'John Doe', age });
 }
 
+/* rest parameters with async functions */
+
+function multiplyBy(params: number, ...rest: number[]) {
+	return rest.map((number) => number * params);
+}
+
+// console.log(multiplyBy(2, 10, 20, 30, 40));
+
+const args = [8, 5] as const;
+
+const args1 = [10, 2] as const; //makes it read only and typescript inhertis types
+//similarly tuples can also be declared
+// let tupleExample = ['John Doe', 30] as const;
+// tupleExample.pop()
+let findAnglesBetweenTwoNumbers = Math.atan2(...args);
+// console.log(findAnglesBetweenTwoNumbers);
+findAnglesBetweenTwoNumbers = Math.atan2(...args1);
+// console.log(findAnglesBetweenTwoNumbers);
+
+/* parameter destructuring */
