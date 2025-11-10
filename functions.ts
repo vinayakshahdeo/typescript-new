@@ -132,3 +132,61 @@ students.map(function (student) {
 	console.log(`Student2 name is: ${student}`);
 	return student;
 });
+
+/* never and void types with array */
+// void here makes sure nothing is executed
+function writeToDatabase(value: string): void {
+	console.log('Writing to database...', value);
+}
+//never is used whenever the function never completes execution
+
+// function throwError(error: string): never {
+// 	throw new Error(error);
+
+// }
+
+type check = never extends void ? true : false;
+type check2 = void extends never ? true : false;
+//we can use void instead of never as its subset of void but not vice versa
+
+/* coding exercise */
+type LogMessage = (msg: string) => void;
+let log: LogMessage = function (str = 'Helloo') {
+	// console.log(str);
+};
+log('Hello Typescript');
+
+type ThrowError = (msg: string) => never;
+
+let throwError: ThrowError = function (err) {
+	throw new Error(err);
+};
+
+const processData = (data: string): void => {
+	log(`Processing ${data}`);
+};
+processData('sample data');
+
+const errorHandlingScenario = (): never => {
+	return throwError('An unexpected error occurred!');
+};
+
+/*Async function  */
+//it returns a promise
+async function fetchFromDatabase(id: number): Promise<any> { }
+
+const anotherAsyncFunction = async (): Promise<any> => { };
+
+/* using promise.resolve as async will return promise implicitly */
+async function returnString(id: number): Promise<string> {
+	return Promise.resolve("string");
+}
+
+/* strict typing with async functions for nested objects*/
+
+type User = { name: string, age: number; };
+
+async function returnUser(age: number): Promise<User> {
+	return Promise.resolve({ name: 'John Doe', age });
+}
+
