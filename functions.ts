@@ -122,3 +122,13 @@ const person2: Person2 = {
 
 // console.log(person2.greet('Hello'));
 
+const students = ['Alice', 'Bob', 'Mark'];
+
+students.map((student) => {
+	console.log(`Student name is: ${student}`);
+});
+/* correctly infered as anonymous function by ts */
+students.map(function (student) {
+	console.log(`Student2 name is: ${student}`);
+	return student;
+});
