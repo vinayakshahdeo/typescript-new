@@ -210,3 +210,86 @@ findAnglesBetweenTwoNumbers = Math.atan2(...args1);
 // console.log(findAnglesBetweenTwoNumbers);
 
 /* parameter destructuring */
+type Numbers = {
+	a: number,
+	b: number,
+	c: number;
+};
+
+let numbers: Numbers = { a: 1, b: 2, c: 3 };
+
+function sum({ a, b, c }: Numbers) {
+	return a + b + c;
+}
+
+// console.log(sum(numbers));
+// console.log(sum({a:1,b:'hello',c:3}))
+
+/* coding exercise */
+// type FetchDataFunction = (arg0: string, ...rest: string[]) => Promise<string[]>;
+
+// type Users = { firstName: string, lastName: string, age: number; };
+
+// const user: Users = { firstName: 'John', lastName: 'Doe', age: 30 };
+
+// function getUserInfo({ firstName, lastName, age }: Users): string {
+// 	return `User: ${firstName} ${lastName}, Age: ${age}`;
+// }
+// console.log(getUserInfo(user));
+
+// const fetchData: FetchDataFunction = async (base, ...rest) => {
+// 	const query = rest.join('&');
+// 	const response = await fetch(`${base}?${query}`);
+// 	const data = await response.json();
+// 	return data;
+// };
+// fetchData("https://api.example.com", "param1=value1", "param2=value2");
+
+/* Function Overloading */
+
+const str: string = 'Hello, World!';
+const part1 = str.slice(7);
+// console.log(part1);
+const part2 = str.slice(7, 10);
+// console.log(part2);
+
+
+/* In typrescript we cant have function parameters followed by optional Parameters */
+/* two variations of train booking where one has return date and another doesnt have return date */
+/* now since either variation can be used hence the return types are unionized by never since both can't be used at the same time */
+type Reservation = {
+	departureDate: Date;
+	returnDate?: Date;
+	departingFrom: string;
+	destination: string;
+};
+type Reserve = {
+	(departureDate: Date,
+		returnDate: Date,
+		departingFrom: string,
+		destination: string,
+	): Reservation | never;
+	(departureDate: Date,
+		departingFrom: string,
+		destination: string,
+	): | Reservation | never;
+};
+
+
+const reserve: Reserve = (departureDate: Date, returnDateOrDepartingFrom: Date | string,
+	departingFromOrDestination: string, destination?: string) => {
+	if (returnDateOrDepartingFrom instanceof Date && destination) {
+		return {
+			departureDate, returnDate: returnDateOrDepartingFrom,
+			departingFrom: departingFromOrDestination, destination: destination
+		};
+	} else if (typeof returnDateOrDepartingFrom === "string") {
+		return {
+			departureDate,
+			departingFrom: returnDateOrDepartingFrom, destination: departingFromOrDestination
+		};
+	};
+	throw new Error("Please provide valid options");
+};
+
+console.log(reserve);
