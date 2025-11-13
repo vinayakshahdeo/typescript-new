@@ -156,11 +156,11 @@ let log: LogMessage = function (str = 'Helloo') {
 };
 log('Hello Typescript');
 
-type ThrowError = (msg: string) => never;
+// type ThrowError = (msg: string) => never;
 
-let throwError: ThrowError = function (err) {
-	throw new Error(err);
-};
+// let throwError: ThrowError = function (err) {
+// 	throw new Error(err);
+// };
 
 const processData = (data: string): void => {
 	log(`Processing ${data}`);
@@ -292,4 +292,49 @@ const reserve: Reserve = (departureDate: Date, returnDateOrDepartingFrom: Date |
 	throw new Error("Please provide valid options");
 };
 
-console.log(reserve);
+// console.log(reserve(new Date(), new Date('2023-12-25'), 'New York', 'Delhi'));
+// console.log(reserve(new Date(), "London", "Paris"));
+
+/**
+ * Practice Excercise for functions
+ */
+
+//* 1. Declare a function named greet that takes a string parameter name and returns a greeting message.
+
+//* 2. Define an type Product with properties id (number) and name (string). Create a function named getProduct that takes an id parameter and returns a Product.
+
+//* 3. Declare a function signature named Calculator as a type that takes two numbers and returns a number. Implement two functions add and subtract that match this signature.
+
+//* 4. Create a function named logMessage that takes a string message and logs it to the console, returning void. Also, create a function named throwError that takes a string message and throws an error, returning never.
+
+const greets = (name: string): string => `Hello ${name}`;
+console.log(greets("vinayak"));
+
+type Product = {
+	id: number;
+	name: string;
+};
+function getProduct(id: number) {
+	return { id, name: "Product" };
+}
+console.log(getProduct(1));
+
+
+type Calculator = (a: number, b: number) => number;
+
+const adds: Calculator = (a, b) => a + b;
+
+
+const subtracts: Calculator = function (a, b) {
+	return a - b;
+};
+
+console.log(adds(1, 2), subtracts(78, 9));
+
+function logMessage(message: string): void {
+	console.log(message);
+}
+
+function throwError(error: string): never {
+	throw new Error(error);
+}
