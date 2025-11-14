@@ -18,7 +18,7 @@
     "prepare": "husky",
     "test": "echo \"Error: no test specified\" && exit 1",
     "start:dev": "tsc -w",
-    "dev": "nodemon functions.js",
+    "dev": "nodemon generics.js",
     "lint-staged": "lint-staged"
   },
   "devDependencies": {
