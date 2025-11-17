@@ -31,22 +31,6 @@ const animal: Person<Animal> = {
 	hobbies: [{ animalType: "dog" }, { animalType: "cat" }],
 };
 
-// Example 4: Using a mapped type with the generic type
-type PersonWithSalary<T> = {
-	...Person<T>,
-	salary: number;
-}; `1`;
-const personWithSalary: PersonWithSalary<number> = {
-	name: "Sarah",
-	age: 32,
-	hobbies: [1, 2, 3],
-	salary: 50000,
-};
-
-// Example 5: Using a generic type for the value in a tuple
-type TupleValue<T> = [string | T];
-const tupleValue: TupleValue<number> = ["hello", 42];
-
 // This is a function that takes a generic parameter and returns it
 function returnParams<Type>(param: Type): Type {
 	return param;
@@ -61,4 +45,8 @@ const myParam1: <T>(a: T, b: T) => T = (a, b) => a;//generic arrow function with
 
 const myParam3 = function <U>(param: U): U {//generic function expression example
 	return param;
+};
+type objectType = {
+	myParam: <V>(param: V) => V;//generic function type in object type example
+	myParam1: <W, X>(a: W, b: X) => W | X;//generic function type with two parameters in object type example
 };
