@@ -58,3 +58,23 @@ type objectType1 = {
 	myParam: myParam4;
 	myParam1: <W, X>(a: W, b: X) => W | X;//generic function type with two parameters in object type example
 };
+
+
+/* generics with funcions */
+
+type GetFirstElement = <T>(arr: T[]) => T | undefined;//added undefined to handle empty array case
+
+const getFirstElement: GetFirstElement = (arr) => {
+	return arr.length ? arr[0] : undefined;
+};
+
+console.log(getFirstElement([1, 2, 3]));
+console.log(getFirstElement(['a', 'b']));;
+
+
+type FirstElementFunction<T> = (arr: T[]) => T | undefined;
+
+const firstElement: FirstElementFunction<string> = (arr) => arr[0];
+//This declaration creates a function that only works with types which are declared during decalration. Its not reusable like the previous one.
+
+const firstElementFunction: FirstElementFunction<number> = (arr) => arr[0];// best case for reusable function with specific type
