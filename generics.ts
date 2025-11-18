@@ -86,7 +86,7 @@ type HasLength = {
 };
 
 function logLength<T extends HasLength>(params: T): void {
-	console.log(params.length);
+	// console.log(params.length);
 }
 logLength("Hello World");
 logLength([1, 2, 3, 4, 5]);
@@ -130,3 +130,70 @@ function printKey<T extends HasId>(obj: T): number {
 
 printKey({ id: 123, name: 'Test' });
 // printKey({name:'Product'}); //Error as id is missing
+
+/* keyof operator */
+
+type Events = {
+	id: number;
+	date: Date;
+	type: 'indoor' | 'outdoor';
+};
+
+type UnionOfKeysOfEvents = keyof Events;//"id" | "date" | "type"
+
+let idOfEvents: UnionOfKeysOfEvents = "id";
+// let idOfEvents: UnionOfKeysOfEvents = "date";
+// let idOfEvents: UnionOfKeysOfEvents = "type";
+// let idOfEvents: UnionOfKeysOfEvents = "someKey"; //Error as someKey is not assignable to "id" | "date" | "type"
+
+let dateOfEvents: UnionOfKeysOfEvents = "date";
+
+type Numeric = {
+	[key: number]: string;
+};
+
+type NumericKeyOf = keyof Numeric;//number
+
+type NumberAndString = {
+	[key: string]: number;
+};
+
+type NumberAndStringKeyOf = keyof NumberAndString;//string
+
+let stringObject: NumberAndString = {
+	1: 1,
+	"two": 2,
+	"three": 3
+};
+
+// console.log(stringObject['1']);
+
+function getEventProperty<T extends Events, K extends keyof Events>(event: T, key: K): T[K] {
+	return event[key];
+}
+getEventProperty({ id: 1, date: new Date(), type: 'indoor' }, 'date');
+//This type can be used to create functions that access properties of objects in a type-safe manner based on the keys provided.
+
+/* Partial */
+
+type User = {
+	id: number;
+	name: string;
+	email: string;
+	age: number;
+};
+
+type PartialUser = {
+	[P in keyof User]?: User[P] | null | undefined;
+};
+
+const user1: User = {
+	id: 1,
+	name: "John Doe",
+	email: "john@example.com",
+	age: 30
+};
+
+const partialUser: PartialUser = {
+	name: "Jane Doe"
+};
