@@ -92,3 +92,41 @@ logLength("Hello World");
 logLength([1, 2, 3, 4, 5]);
 logLength({ length: 10, value: "Test" });
 // logLength(123); // Error: number doesn't have a length property
+
+/* Generics with Objects */
+
+// let stringAndNumberPair = {
+// 	key: 'age',
+// 	value: 30
+// };
+
+// let arrayNumberPair = {
+// 	key: [1, 2, 3],
+// 	value: 100
+// };
+
+// both above variables have same structure but different types as keys can be any type
+// we can use generics to define such structures
+
+type KeyValuePair<K, V> = { key: K, value: V; };
+
+let stringAndNumberPair: KeyValuePair<string, number> = {
+	key: 'age',
+	value: 30
+};
+
+let arrayNumberPair: KeyValuePair<number[], number> = {
+	key: [1, 2, 3],
+	value: 100
+};
+
+type HasId = {
+	id: number;
+};
+
+function printKey<T extends HasId>(obj: T): number {
+	return obj.id;
+}
+
+printKey({ id: 123, name: 'Test' });
+// printKey({name:'Product'}); //Error as id is missing
