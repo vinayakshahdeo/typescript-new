@@ -68,8 +68,8 @@ const getFirstElement: GetFirstElement = (arr) => {
 	return arr.length ? arr[0] : undefined;
 };
 
-console.log(getFirstElement([1, 2, 3]));
-console.log(getFirstElement(['a', 'b']));;
+// console.log(getFirstElement([1, 2, 3]));
+// console.log(getFirstElement(['a', 'b']));;
 
 
 type FirstElementFunction<T> = (arr: T[]) => T | undefined;
@@ -78,3 +78,17 @@ const firstElement: FirstElementFunction<string> = (arr) => arr[0];
 //This declaration creates a function that only works with types which are declared during decalration. Its not reusable like the previous one.
 
 const firstElementFunction: FirstElementFunction<number> = (arr) => arr[0];// best case for reusable function with specific type
+
+/* Generics With Array */
+//Below type definition checks for length property
+type HasLength = {
+	length: number;
+};
+
+function logLength<T extends HasLength>(params: T): void {
+	console.log(params.length);
+}
+logLength("Hello World");
+logLength([1, 2, 3, 4, 5]);
+logLength({ length: 10, value: "Test" });
+// logLength(123); // Error: number doesn't have a length property
