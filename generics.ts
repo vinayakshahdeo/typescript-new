@@ -46,7 +46,15 @@ const myParam1: <T>(a: T, b: T) => T = (a, b) => a;//generic arrow function with
 const myParam3 = function <U>(param: U): U {//generic function expression example
 	return param;
 };
+
+type myParam4 = <T>(param: T) => T;//generic function type example
+
 type objectType = {
 	myParam: <V>(param: V) => V;//generic function type in object type example
+	myParam1: <W, X>(a: W, b: X) => W | X;//generic function type with two parameters in object type example
+};
+
+type objectType1 = {
+	myParam: myParam4;
 	myParam1: <W, X>(a: W, b: X) => W | X;//generic function type with two parameters in object type example
 };
