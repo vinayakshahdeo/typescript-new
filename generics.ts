@@ -223,7 +223,7 @@ type userResponse = {
 
 async function fetchUserData() {
 	const data = await fetchData<userResponse[]>("https://jsonplaceholder.typicode.com/users/1");
-	console.log(data.length);
+	// console.log(data);
 }
 
 fetchUserData();
