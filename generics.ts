@@ -197,3 +197,33 @@ const user1: User = {
 const partialUser: PartialUser = {
 	name: "Jane Doe"
 };
+
+/* Generic Default Types */
+//by default generic type is any if not specified
+async function fetchData<T = any>(url: string): Promise<T> {
+	const response = await fetch(url);
+	const data = await response.json();
+	return data;
+}
+
+async function fetchDefault() {
+	const data = await fetchData("https://jsonplaceholder.typicode.com/users");
+	// console.log(data);
+	return data;
+}
+fetchDefault();
+
+
+type userResponse = {
+	id: number;
+	name: string;
+	username: string;
+	email: string;
+};
+
+async function fetchUserData() {
+	const data = await fetchData<userResponse[]>("https://jsonplaceholder.typicode.com/users/1");
+	console.log(data.length);
+}
+
+fetchUserData();
