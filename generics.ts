@@ -222,8 +222,51 @@ type userResponse = {
 };
 
 async function fetchUserData() {
-	const data = await fetchData<userResponse[]>("https://jsonplaceholder.typicode.com/users/1");
-	// console.log(data);
+	const data = await fetchData<userResponse[]>("https://jsonplaceholder.typicode.com/users");
+	console.log(data);
 }
 
-fetchUserData();
+// fetchUserData();
+
+/* implementing a polymorphic function */
+
+const filter = (array: any[], predicate: (item: any) => boolean): any[] => {
+	let result: any[] = [];
+	for (let i = 0; i < array.length; i++) {
+		if (predicate(array[i])) {
+			result.push(array[i]);
+		}
+	}
+	return result;
+};
+
+const numbers = [1, 2, 3, 4, 5, 6];
+const evenNumbers = filter(numbers, (num) => num % 2 === 0);
+console.log(evenNumbers); // [2, 4, 6]
+
+const animals = ['cat', 'dog', 'elephant', 'lion'];
+const longNamedAnimals = filter(animals, (animal) => animal.length > 3);
+console.log(longNamedAnimals); // ['elephant', 'lion']
+
+/* Now lets make this function generic */
+
+/* creating a function overload for the same case first */
+type FilterOverload = {
+	(array: number[], predictae: (item: number) => boolean): number[];
+	(array: string[], predictae: (item: string) => boolean): string[];
+	(array: object[], predictae: (item: object) => boolean): object[];
+};
+
+
+const genericFilter = <T>(array: T[], predicate: (item: T) => boolean): T[] => {
+	let result: T[] = [];
+	for (let i = 0; i < array.length; i++) {
+		if (predicate(array[i])) {
+			result.push(array[i]);
+		}
+	}
+	return result;
+};
+
+const genericEvenNumbers = genericFilter(numbers, (num) => num % 2 === 0);
+console.log(genericEvenNumbers); // [2, 4, 6]
