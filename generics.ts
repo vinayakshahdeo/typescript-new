@@ -258,15 +258,27 @@ type FilterOverload = {
 };
 
 
-const genericFilter = <T>(array: T[], predicate: (item: T) => boolean): T[] => {
+// const genericFilter = <T>(array: T[], predicate: (item: T) => boolean): T[] => {
+// 	let result: T[] = [];
+// 	for (let i = 0; i < array.length; i++) {
+// 		if (predicate(array[i])) {/* Argument of type 'T | undefined' is not assignable to parameter of type 'T'.
+//   'T' could be instantiated with an arbitrary type which could be unrelated to 'T | undefined'.ts(2345) */
+// 			result.push(array[i]);
+// 		}
+// 	}
+// 	return result;
+// };
+/* fixing the error by using generics */
+const genericFilter = <T,>(array: T[], predicate: (item: T) => boolean): T[] => {
 	let result: T[] = [];
-	for (let i = 0; i < array.length; i++) {
-		if (predicate(array[i])) {
-			result.push(array[i]);
+	for (const item of array) {
+		if (predicate(item)) {
+			result.push(item);
 		}
 	}
 	return result;
 };
 
-const genericEvenNumbers = genericFilter(numbers, (num) => num % 2 === 0);
+
+const genericEvenNumbers = genericFilter<number>(numbers, (num) => num % 2 === 0);
 console.log(genericEvenNumbers); // [2, 4, 6]
