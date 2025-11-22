@@ -246,7 +246,7 @@ console.log(evenNumbers); // [2, 4, 6]
 
 const animals = ['cat', 'dog', 'elephant', 'lion'];
 const longNamedAnimals = filter(animals, (animal) => animal.length > 3);
-console.log(longNamedAnimals); // ['elephant', 'lion']
+// console.log(longNamedAnimals); // ['elephant', 'lion']
 
 /* Now lets make this function generic */
 
