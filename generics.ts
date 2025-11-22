@@ -242,7 +242,7 @@ const filter = (array: any[], predicate: (item: any) => boolean): any[] => {
 
 const numbers = [1, 2, 3, 4, 5, 6];
 const evenNumbers = filter(numbers, (num) => num % 2 === 0);
-console.log(evenNumbers); // [2, 4, 6]
+// console.log(evenNumbers); // [2, 4, 6]
 
 const animals = ['cat', 'dog', 'elephant', 'lion'];
 const longNamedAnimals = filter(animals, (animal) => animal.length > 3);
