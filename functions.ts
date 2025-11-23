@@ -39,7 +39,6 @@ function intro(name: string, age: number, country?: string): string {
 
 //  custom parameter types and return types for functions
 
-
 enum AgeUnit {
 	Years = 'years',
 	Months = 'months',
