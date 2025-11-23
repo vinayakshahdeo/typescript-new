@@ -16,9 +16,8 @@
   "main": "index.ts",
   "scripts": {
     "prepare": "husky",
-    "test": "echo \"Error: no test specified\" && exit 1",
     "start:dev": "tsc -w",
-    "dev": "nodemon generics.js",
+    "dev": "nodemon classes.js",
     "lint-staged": "lint-staged"
   },
   "devDependencies": {
