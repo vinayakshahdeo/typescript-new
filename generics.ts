@@ -272,7 +272,7 @@ const genericFilter = <T,>(array: T[], predicate: (item: T) => boolean): T[] => 
 
 
 const genericEvenNumbers = genericFilter<number>(numbers, (num) => num % 2 === 0);
-console.log(genericEvenNumbers); // [2, 4, 6]
+// console.log(genericEvenNumbers); // [2, 4, 6]
 
 /* coding exercise */
 //here is the map function which can recieve an array of any type and a transform function to convert each element to another type and also handles empty array case. This function takes two generic types T and U and returns an array of type U or T based on the transform function provided.
@@ -291,4 +291,4 @@ const map = <T, U>(array: T[], transform: (T: any) => U): (U | T)[] => {
 let number = [4, 5, 6, 7, 8];
 
 const converted = map(number, (num) => num.toString());
-console.log(converted); // ['4', '5', '6', '7', '8']
+// console.log(converted); // ['4', '5', '6', '7', '8']
