@@ -146,7 +146,9 @@ class AdminUser extends User {
 	isAdmin: boolean;
 
 	constructor(name: string, age: number, isAdmin: boolean) {
-		super(name, age);
+		super(name, age); // calling parent class constructor
+		// refactored to use existing user as base
+		// super can be called only once
 		this.isAdmin = isAdmin;
 	}
 
