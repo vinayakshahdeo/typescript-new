@@ -18,8 +18,8 @@ class User {
 const user1 = new User('Alice', 25);
 const user2 = new User('Bob', 28);
 
-console.log(user1.greet()); // Hello, my name is Alice and I am 25 years old.
-console.log(user2.greet()); // Hello, my name is Bob and I am 28 years old.
+// console.log(user1.greet()); // Hello, my name is Alice and I am 25 years old.
+// console.log(user2.greet()); // Hello, my name is Bob and I am 28 years old.
 
 /* class with public, private and protected modifiers */
 class Employee {
@@ -43,7 +43,7 @@ class Employee {
 }
 
 const emp1 = new Employee('Charlie', 50000, 'IT');
-console.log(emp1.getDetails()); // Name: Charlie, Department: IT
+// console.log(emp1.getDetails()); // Name: Charlie, Department: IT
 // console.log(emp1.getSalary()); // Error: Property 'getSalary' is private and only accessible within class 'Employee'.
 
 /* inheritance in classes */
@@ -58,8 +58,8 @@ class Manager extends Employee {
 }
 
 const mgr1 = new Manager('David', 80000, 'HR');
-console.log(mgr1.getDetails()); // Name: David, Department: HR
-console.log(mgr1.manageTeam()); // David is managing the HR department.
+// console.log(mgr1.getDetails()); // Name: David, Department: HR
+// console.log(mgr1.manageTeam()); // David is managing the HR department.
 // console.log(mgr1.salary); // Error: Property 'salary' is private and only accessible within class 'Employee'.
 // console.log(mgr1.department); // Error: Property 'department' is protected and only accessible within class 'Employee' and its subclasses.
 
@@ -76,7 +76,7 @@ class Point {
 }
 
 function printPoint(point: Point) {
-	console.log(`X: ${point.x}, Y: ${point.y}`);
+	// console.log(`X: ${point.x}, Y: ${point.y}`);
 }
 
 // const pt: Point = new Point(10, 20); // explicit type annotation as class Point is also a type
@@ -105,9 +105,9 @@ class Rectangle {
 }
 
 const rect1 = new Rectangle(10, 20, 'red');
-console.log(`Area: ${rect1.getArea()}`); // Area: 200
-console.log(`Color: ${rect1.color}`); // Color: red
-console.log(rect1.height); // 20
+// console.log(`Area: ${rect1.getArea()}`); // Area: 200
+// console.log(`Color: ${rect1.color}`); // Color: red
+// console.log(rect1.height); // 20
 // rect1.width = 15; // Error: Cannot assign to 'width' because it is a read-only property.
 
 /* Inheritance with classes and ts */
@@ -137,6 +137,36 @@ class Dog extends Animal {
 }
 
 const dog1 = new Dog('Labrador');
-console.log(dog1.makeSound()); // Labrador barks.
-console.log(dog1.species); // Dog
+// console.log(dog1.makeSound()); // Labrador barks.
+// console.log(dog1.species); // Dog
 /* classes can only inherit 1 class, not multiple either in ts nor in js */
+
+// adding admin property to User class using inheritance
+class AdminUser extends User {
+	isAdmin: boolean;
+
+	constructor(name: string, age: number, isAdmin: boolean) {
+		super(name, age);
+		this.isAdmin = isAdmin;
+	}
+
+	public getAdminStatus() {
+		return this.isAdmin ? `${this.name} is an admin.` : `${this.name} is not an admin.`;
+	}
+}
+
+const admin1 = new AdminUser('Eve', 35, true);
+// console.log(admin1.greet()); // Hello, my name is Eve and I am 35 years old.
+// console.log(admin1.getAdminStatus()); // Eve is an admin.
+// cretaing an existing user as admin user
+const userAsAdmin = new AdminUser(user1.name, user1.age, false);
+// console.log(userAsAdmin.greet()); // Hello, my name is John Doe and I am 30 years old.
+// console.log(userAsAdmin.getAdminStatus()); // John Doe is not an admin.
+
+/* Summary:
+- Classes are blueprints for creating objects with properties and methods.
+- Access modifiers (public, private, protected) control visibility of class members.
+- Inheritance allows classes to extend other classes, inheriting their properties and methods.
+- Classes can also be used as types for type annotations.
+- Optional and readonly properties enhance class flexibility and safety.
+*/
