@@ -107,3 +107,5 @@ class Rectangle {
 const rect1 = new Rectangle(10, 20, 'red');
 console.log(`Area: ${rect1.getArea()}`); // Area: 200
 console.log(`Color: ${rect1.color}`); // Color: red
+console.log(rect1.height); // 20
+// rect1.width = 15; // Error: Cannot assign to 'width' because it is a read-only property.
