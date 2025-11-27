@@ -62,3 +62,4 @@ console.log(mgr1.getDetails()); // Name: David, Department: HR
 console.log(mgr1.manageTeam()); // David is managing the HR department.
 // console.log(mgr1.salary); // Error: Property 'salary' is private and only accessible within class 'Employee'.
 // console.log(mgr1.department); // Error: Property 'department' is protected and only accessible within class 'Employee' and its subclasses.
+
