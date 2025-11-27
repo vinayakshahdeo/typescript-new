@@ -63,3 +63,24 @@ console.log(mgr1.manageTeam()); // David is managing the HR department.
 // console.log(mgr1.salary); // Error: Property 'salary' is private and only accessible within class 'Employee'.
 // console.log(mgr1.department); // Error: Property 'department' is protected and only accessible within class 'Employee' and its subclasses.
 
+/* Classes as Types */
+
+class Point {
+	x: number;
+	y: number;
+
+	constructor(x: number, y: number) {
+		this.x = x;
+		this.y = y;
+	}
+}
+
+function printPoint(point: Point) {
+	console.log(`X: ${point.x}, Y: ${point.y}`);
+}
+
+// const pt: Point = new Point(10, 20); // explicit type annotation as class Point is also a type
+const pt = new Point(10, 20); // implicit type annotation
+printPoint(pt); // X: 10, Y: 20
+
+// pt.z = 30; // Error: Property 'z' does not exist on type 'Point'.
