@@ -84,3 +84,26 @@ const pt = new Point(10, 20); // implicit type annotation
 printPoint(pt); // X: 10, Y: 20
 
 // pt.z = 30; // Error: Property 'z' does not exist on type 'Point'.
+
+/* Optional and Readonly Properties */
+class Rectangle {
+	readonly width: number;
+	readonly height: number;
+	color?: string; // optional property
+
+	constructor(width: number, height: number, color?: string) {
+		this.width = width;
+		this.height = height;
+		if (color) {
+			this.color = color;
+		}
+	}
+
+	public getArea() {
+		return this.width * this.height;
+	}
+}
+
+const rect1 = new Rectangle(10, 20, 'red');
+console.log(`Area: ${rect1.getArea()}`); // Area: 200
+console.log(`Color: ${rect1.color}`); // Color: red
