@@ -146,6 +146,7 @@ class AdminUser extends User {
 	isAdmin: boolean;
 
 	constructor(name: string, age: number, isAdmin: boolean) {
+		// super();  // Expected 2 arguments, but got 0.ts(2554)
 		super(name, age); // calling parent class constructor
 		// refactored to use existing user as base
 		// super can be called only once
