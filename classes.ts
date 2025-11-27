@@ -109,3 +109,34 @@ console.log(`Area: ${rect1.getArea()}`); // Area: 200
 console.log(`Color: ${rect1.color}`); // Color: red
 console.log(rect1.height); // 20
 // rect1.width = 15; // Error: Cannot assign to 'width' because it is a read-only property.
+
+/* Inheritance with classes and ts */
+class Animal {
+	species: string;
+
+	constructor(species: string) {
+		this.species = species;
+	}
+
+	public makeSound() {
+		return `${this.species} makes a sound.`;
+	}
+}
+
+class Dog extends Animal {
+	breed: string;
+
+	constructor(breed: string) {
+		super('Dog');
+		this.breed = breed;
+	}
+
+	public makeSound() {
+		return `${this.breed} barks.`;
+	}
+}
+
+const dog1 = new Dog('Labrador');
+console.log(dog1.makeSound()); // Labrador barks.
+console.log(dog1.species); // Dog
+/* classes can only inherit 1 class, not multiple either in ts nor in js */
