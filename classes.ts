@@ -231,7 +231,7 @@ function logBookDetails(book: Book): void {
 //new Book instance
 const grimm = new Book('valorant', 'chamber', '36 kills', 1994);
 
-logBookDetails(grimm);
+// logBookDetails(grimm);
 
 class Ebook extends Book {
 	fileSize: number;
@@ -244,4 +244,10 @@ class Ebook extends Book {
 }
 
 const ebook1 = new Ebook(500, 'Digital Fortress', 'Dan Brown', '123-456-789', 'PDF', 1998);
-logBookDetails(ebook1);
+// logBookDetails(ebook1);
+/* Access Modifiers */
+// only accesible within typescipt class
+// private class members are not accessible outside the class
+// protected class members are accessible within the class and its subclasses
+// public class members are accessible from anywhere
+
