@@ -251,3 +251,65 @@ const ebook1 = new Ebook(500, 'Digital Fortress', 'Dan Brown', '123-456-789', 'P
 // protected class members are accessible within the class and its subclasses
 // public class members are accessible from anywhere
 
+
+/* PUBLIC */
+// all class members are public by default
+class Car {
+	public make: string;
+	public model: string;
+
+	constructor(make: string, model: string) {
+		this.make = make;
+		this.model = model;
+	}
+	public getCarInfo() {
+		console.log(`${this.make} ${this.model}`);
+	}
+}
+
+const car1 = new Car('Toyota', 'Camry');
+// car1.getCarInfo();
+
+class ElectricCar extends Car {
+	public batteryCapacity: number;
+
+	constructor(make: string, model: string, batteryCapacity: number) {
+		super(make, model);
+		this.batteryCapacity = batteryCapacity;
+	}
+	public getElectricCarInfo() {
+		//using this keyword can access parent class members
+		console.log(`${this.make} ${this.model} with battery capacity of ${this.batteryCapacity} kWh`);
+	}
+}
+
+const eCar1 = new ElectricCar('Tesla', 'Model S', 100);
+// eCar1.getCarInfo();
+eCar1.getElectricCarInfo();
+console.log(eCar1.batteryCapacity);
+
+class UserProfile {
+	public username: string;
+	constructor(username: string) {
+		this.username = username;
+	}
+	public displayUsername() {
+		console.log(`Username: ${this.username}`);
+	}
+}
+
+class AdminProfile extends UserProfile {
+	public isAdmnin: boolean;
+	constructor(username: string, isAdmnin: boolean) {
+		super(username);
+		this.isAdmnin = isAdmnin;
+	}
+	public displayAdminStatus() {
+		console.log(`${this.username} is ${this.isAdmnin ? '' : 'not '}an admin.`);
+	}
+}
+
+const adminProfile1 = new AdminProfile('adminUser', true);
+const user = new UserProfile('regularUser');
+console.log(user.username);
+console.log(adminProfile1.username);
