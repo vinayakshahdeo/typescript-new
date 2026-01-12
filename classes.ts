@@ -228,7 +228,7 @@ function logBookDetails(book: Book): void {
 		console.log('Year Published: N/A');
 	}
 }
-
+//new Book instance
 const grimm = new Book('valorant', 'chamber', '36 kills', 1994);
 
 logBookDetails(grimm);
