@@ -218,8 +218,20 @@ class Book {
 	}
 }
 
+function logBookDetails(book: Book): void {
+	console.log(`Title: ${book.title}`);
+	console.log(`Author: ${book.author}`);
+	console.log(`ISBN: ${book.ISBN}`);
+	if (book.yearPublished) {
+		console.log(`Year Published: ${book.yearPublished}`);
+	} else {
+		console.log('Year Published: N/A');
+	}
+}
+
 const grimm = new Book('valorant', 'chamber', '36 kills', 1994);
-console.log(grimm);
+
+logBookDetails(grimm);
 
 class Ebook extends Book {
 	fileSize: number;
@@ -230,4 +242,4 @@ class Ebook extends Book {
 }
 
 const ebook1 = new Ebook(500, 'Digital Fortress', 'Dan Brown', '123-456-789', 1998);
-console.log(ebook1);
+logBookDetails(ebook1);
