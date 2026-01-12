@@ -218,7 +218,7 @@ class Book {
 	}
 }
 
-function logBookDetails(book: Book): void {
+function logBookDetails(book: Ebook): void {
 	console.log(`Title: ${book.title}`);
 	console.log(`Author: ${book.author}`);
 	console.log(`ISBN: ${book.ISBN}`);
@@ -235,11 +235,13 @@ logBookDetails(grimm);
 
 class Ebook extends Book {
 	fileSize: number;
-	constructor(fileSize: number, title: string, author: string, ISBN: string, yearPublished?: number) {
+	format: string;
+	constructor(fileSize: number, title: string, author: string, ISBN: string, format: string, yearPublished?: number) {
 		super(title, author, ISBN, yearPublished);
 		this.fileSize = fileSize;
+		this.format = format;
 	}
 }
 
-const ebook1 = new Ebook(500, 'Digital Fortress', 'Dan Brown', '123-456-789', 1998);
+const ebook1 = new Ebook(500, 'Digital Fortress', 'Dan Brown', '123-456-789', 'PDF', 1998);
 logBookDetails(ebook1);
