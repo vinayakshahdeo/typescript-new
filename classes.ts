@@ -220,3 +220,14 @@ class Book {
 
 const grimm = new Book('valorant', 'chamber', '36 kills', 1994);
 console.log(grimm);
+
+class Ebook extends Book {
+	fileSize: number;
+	constructor(fileSize: number, title: string, author: string, ISBN: string, yearPublished?: number) {
+		super(title, author, ISBN, yearPublished);
+		this.fileSize = fileSize;
+	}
+}
+
+const ebook1 = new Ebook(500, 'Digital Fortress', 'Dan Brown', '123-456-789', 1998);
+console.log(ebook1);
