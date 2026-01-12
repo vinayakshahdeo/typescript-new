@@ -218,7 +218,7 @@ class Book {
 	}
 }
 
-function logBookDetails(book: Ebook): void {
+function logBookDetails(book: Book): void {
 	console.log(`Title: ${book.title}`);
 	console.log(`Author: ${book.author}`);
 	console.log(`ISBN: ${book.ISBN}`);
