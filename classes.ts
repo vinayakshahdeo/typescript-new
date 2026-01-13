@@ -347,3 +347,30 @@ const adminUser = new Admin('test@pokemail.net', 'Admin User', true);
 // console.log(adminUser.email); // Error: Property 'email' is protected and only accessible within class 'Users' and its subclasses.
 // console.log(adminUser.name); // accessible as name is public
 adminUser.getAdminInfo();//if getAdminInfo is protected it cant be invoked by final instance
+
+/* PRIVATE */
+
+class Employees {
+	name: string;
+	private projectName: string;
+	constructor(name: string, projectName: string) {
+		this.name = name;
+		this.projectName = projectName;
+	}
+	public giveProjectInfo() {
+		return this.projectName;
+	}
+}
+class Managers extends Employees {
+	private isManager: boolean;
+	constructor(name: string, projectName: string, isManager: boolean) {
+		super(name, projectName);
+		this.isManager = isManager;
+	}
+}
+
+const manager2 = new Managers('vinayak', 'defense', true);
+// manager2.projectName;//error TS2341: Property 'projectName' is private and only accessible within class 'Employees'.
+// however i can access it using giveProjectInfo() since this is public class
+console.log(manager2.giveProjectInfo());
+// console.log(manager2.isManager); //error TS2341: Property 'isManager' is private and only accessible within class 'Managers'.
