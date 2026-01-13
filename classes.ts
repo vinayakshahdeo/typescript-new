@@ -376,3 +376,46 @@ const manager2 = new Managers('vinayak', 'defense', true);
 // console.log(manager2.isManager); //error TS2341: Property 'isManager' is private and only accessible within class 'Managers'.
 
 /* method overriding */
+
+//To Override methods in a child class, you need to create a new method with the same name as the one in the parent class. This new method can have different functionality than the original method in the parent class. The child class version's of the method is called an overridden method or a derived method.
+
+class Person {
+	name: string;
+	constructor(name: string) {
+		this.name = name;
+	}
+	greet(): string {
+		return `hello ${this.name}`;
+	};
+}
+
+const person2 = new Person('vinayak shahdeo');
+console.log(person2.greet());
+
+class PersonWithPets extends Person {
+	hasPets: boolean;
+	constructor(name: string, hasPets: boolean) {
+		super(name);
+		this.hasPets = hasPets;
+	}
+	greet(): string {
+		if (this.hasPets) {
+			return `hello ${this.name} you have pets woof!!`;
+		}
+		return `hello ${this.name} you dont have pets thats sad!!`;
+	}
+}
+const person3 = new PersonWithPets('vinayak', false);
+console.log(person3.greet());
+
+/* shorthand for constructors in a class */
+class Automobile {
+	constructor(public name: string, private car: boolean) { }
+	/* this method declares and assigns values for our class members using constructor with access modifiers. */
+	getInfo() {
+		return `this is a ${this.name}${this.car ? ` and its a car!!` : `.`}`;
+	}
+}
+
+const tesla = new Automobile("Tesla", true);
+console.log(tesla.getInfo());
