@@ -285,8 +285,8 @@ class ElectricCar extends Car {
 
 const eCar1 = new ElectricCar('Tesla', 'Model S', 100);
 // eCar1.getCarInfo();
-eCar1.getElectricCarInfo();
-console.log(eCar1.batteryCapacity);
+// eCar1.getElectricCarInfo();
+// console.log(eCar1.batteryCapacity);
 
 class UserProfile {
 	public username: string;
@@ -311,5 +311,39 @@ class AdminProfile extends UserProfile {
 
 const adminProfile1 = new AdminProfile('adminUser', true);
 const user = new UserProfile('regularUser');
-console.log(user.username);
-console.log(adminProfile1.username);
+// console.log(user.username);
+// console.log(adminProfile1.username);
+
+/* Protected */
+// accessible within the class and its subclasses
+
+class Users {
+	protected email: string;
+	name: string;
+
+	constructor(email: string, name: string) {
+		this.email = email;
+		this.name = name;
+	}
+	protected getUserInfo() {
+		console.log(this.name);
+		console.log(this.email);
+	}
+}
+class Admin extends Users { // protected is used to make a property of a parent class available for use in child classes
+	public isAdmin: boolean;
+	constructor(email: string, name: string, isAdmin: boolean) {
+		super(email, name);
+		this.isAdmin = isAdmin;
+	}
+	public getAdminInfo() {
+		this.getUserInfo();//accessed protected in child class
+		console.log(this.isAdmin);
+	}
+
+}
+
+const adminUser = new Admin('test@pokemail.net', 'Admin User', true);
+// console.log(adminUser.email); // Error: Property 'email' is protected and only accessible within class 'Users' and its subclasses.
+// console.log(adminUser.name); // accessible as name is public
+adminUser.getAdminInfo();//if getAdmnInfo is protected it cant be invoked by final instance
