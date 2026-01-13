@@ -419,3 +419,23 @@ class Automobile {
 
 const tesla = new Automobile("Tesla", true);
 console.log(tesla.getInfo());
+
+
+
+class Personn {
+	constructor(public firstName: string, public lastName: string, public age: number) {
+		//logic to validate age
+		if (age < 0 || age > 200) {
+			throw new Error('Invalid age range 0-200');
+		}
+	}
+	getInfo() {
+		return `Name: ${this.firstName} ${this.lastName}, Age: ${this.age}`;
+	}
+}
+
+const personn1 = new Personn('John', 'Doe', 20);
+const personn2 = new Personn('Jane', 'Smith', 50);
+personn1.getInfo();
+personn2.getInfo();
+/* ACCESSORS AND MUTATORS */
