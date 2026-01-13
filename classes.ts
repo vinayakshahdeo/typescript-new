@@ -346,7 +346,7 @@ class Admin extends Users { // protected is used to make a property of a parent 
 const adminUser = new Admin('test@pokemail.net', 'Admin User', true);
 // console.log(adminUser.email); // Error: Property 'email' is protected and only accessible within class 'Users' and its subclasses.
 // console.log(adminUser.name); // accessible as name is public
-adminUser.getAdminInfo();//if getAdminInfo is protected it cant be invoked by final instance
+// adminUser.getAdminInfo();//if getAdminInfo is protected it cant be invoked by final instance
 
 /* PRIVATE */
 
@@ -372,5 +372,7 @@ class Managers extends Employees {
 const manager2 = new Managers('vinayak', 'defense', true);
 // manager2.projectName;//error TS2341: Property 'projectName' is private and only accessible within class 'Employees'.
 // however i can access it using giveProjectInfo() since this is public class
-console.log(manager2.giveProjectInfo());
+// console.log(manager2.giveProjectInfo());
 // console.log(manager2.isManager); //error TS2341: Property 'isManager' is private and only accessible within class 'Managers'.
+
+/* method overriding */
