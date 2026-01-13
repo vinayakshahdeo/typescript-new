@@ -346,4 +346,4 @@ class Admin extends Users { // protected is used to make a property of a parent 
 const adminUser = new Admin('test@pokemail.net', 'Admin User', true);
 // console.log(adminUser.email); // Error: Property 'email' is protected and only accessible within class 'Users' and its subclasses.
 // console.log(adminUser.name); // accessible as name is public
-adminUser.getAdminInfo();//if getAdmnInfo is protected it cant be invoked by final instance
+adminUser.getAdminInfo();//if getAdminInfo is protected it cant be invoked by final instance
