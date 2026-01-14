@@ -390,7 +390,7 @@ class Person {
 }
 
 const person2 = new Person('vinayak shahdeo');
-console.log(person2.greet());
+// console.log(person2.greet());
 
 class PersonWithPets extends Person {
 	hasPets: boolean;
@@ -406,7 +406,7 @@ class PersonWithPets extends Person {
 	}
 }
 const person3 = new PersonWithPets('vinayak', false);
-console.log(person3.greet());
+// console.log(person3.greet());
 
 /* shorthand for constructors in a class */
 class Automobile {
@@ -418,7 +418,7 @@ class Automobile {
 }
 
 const tesla = new Automobile("Tesla", true);
-console.log(tesla.getInfo());
+// console.log(tesla.getInfo());
 
 
 
@@ -436,6 +436,28 @@ class Personn {
 
 const personn1 = new Personn('John', 'Doe', 20);
 const personn2 = new Personn('Jane', 'Smith', 50);
-personn1.getInfo();
-personn2.getInfo();
+// personn1.getInfo();
+// personn2.getInfo();
 /* ACCESSORS AND MUTATORS */
+
+class Personns {
+	private _age?: number;//setter declaration
+	constructor(public firstName: string, public lastName: string) {
+	}
+	public set age(age: number) {//setter method
+		if (age < 0 || age > 200) {
+			throw new Error('Invalid age range 0-200');
+		}
+		this._age = age;
+	}
+
+
+	public getName(): string {
+		return `${this.firstName} ${this.lastName}`;
+	}
+}
+
+const johnDoe = new Personns('John', 'Doe');
+const janeDoe = new Personns('Jane', 'Doe');
+johnDoe.age = 30; // setter called
+johnDoe.age = 25;// can be called multiple times
