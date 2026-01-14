@@ -451,13 +451,21 @@ class Personns {
 		this._age = age;
 	}
 
+	public get age(): number {//getter method
+		if (this._age === undefined) {
+			throw new Error('Age is not set');
+		}
+		return this._age;
+	}
 
-	public getName(): string {
+	public get name(): string {//a getter doesn't require a corresponding setter
 		return `${this.firstName} ${this.lastName}`;
 	}
 }
 
 const johnDoe = new Personns('John', 'Doe');
 const janeDoe = new Personns('Jane', 'Doe');
-johnDoe.age = 30; // setter called
-johnDoe.age = 25;// can be called multiple times
+// johnDoe.age = 30; // setter called
+// johnDoe.age = 25;// can be called multiple times
+//if age is not set and getter is called it will throw error try by commenting above 2 lines
+console.log(johnDoe.age);
