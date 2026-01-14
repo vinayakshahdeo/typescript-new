@@ -500,3 +500,17 @@ const counterInstance = new Counter();
 // console.log(counterInstance.count); // Error: Property 'count' does not exist on type 'Counter'.
 // counterInstance.increment(); // Error: Property 'increment' does not exist on type 'Counter'.
 // counterInstance.count = 10; // this is instance property not static property
+
+/* static blocks */
+class Config {
+	static settings: { [key: string]: string; } = {};
+
+	static {//invoked once when the class is loaded into memory
+		// static block to initialize static properties
+		console.log('loaded into memory');
+		Config.settings['apiUrl'] = 'https://api.example.com';
+		Config.settings['timeout'] = '5000';
+	}
+}
+
+console.log(Config.settings); // { apiUrl: 'https://api.example.com', timeout: '5000' }
