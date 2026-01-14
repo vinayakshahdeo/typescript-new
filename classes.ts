@@ -465,7 +465,38 @@ class Personns {
 
 const johnDoe = new Personns('John', 'Doe');
 const janeDoe = new Personns('Jane', 'Doe');
-// johnDoe.age = 30; // setter called
-// johnDoe.age = 25;// can be called multiple times
-//if age is not set and getter is called it will throw error try by commenting above 2 lines
+johnDoe.age = 30; // setter called
+johnDoe.age = 25;// can be called multiple times
+//if age is not set and getter is called it will throw error try by commenting above 2 lines or try janeDoe.age
 console.log(johnDoe.age);
+
+/* STATIC */
+class MathUtils {
+	static PI: number = 3.14159;// static property belongs to the class itself not to instances
+
+	static calculateCircumference(radius: number): number {
+		return 2 * MathUtils.PI * radius;
+	}
+}
+
+const radius = 5;
+const circumference = MathUtils.calculateCircumference(radius);
+// console.log(`Circumference of circle with radius ${radius} is ${circumference}`);
+
+class Counter {
+	static count: number = 0;
+
+	static increment() {
+		Counter.count++;
+	}
+}
+// console.log(Counter.count);
+Counter.count++;
+// console.log(Counter.count);
+Counter.increment();
+// console.log(Counter.count);
+//now if we create instance of Counter class it wont have count property or increment method
+const counterInstance = new Counter();
+// console.log(counterInstance.count); // Error: Property 'count' does not exist on type 'Counter'.
+// counterInstance.increment(); // Error: Property 'increment' does not exist on type 'Counter'.
+// counterInstance.count = 10; // this is instance property not static property
