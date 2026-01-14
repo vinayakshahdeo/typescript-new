@@ -580,3 +580,44 @@ bookRepo.addItem({ id: 1, title: '1984', author: 'George Orwell', ISBN: '123-456
 // bookRepo.addItem({ id: 1, name: 'Alice', email: 'alice@example.com' });//error because class got intialized as Book & Identifiable type which requires title, author and ISBN property
 // console.log(bookRepo.getAll());
 
+/* MIXINS */
+//pattern to add functionality to a class without using inheritance
+
+
+type Constructor = new (...args: any[]) => {};
+function timeStampMixin<T extends Constructor>(Base: T) {//function only accepts a constuctor or a class type
+	return class extends Base {
+		protected timestamp: Date = new Date();
+		get timeStamp(): Date {
+			return this.timestamp;
+		}
+	};
+}
+class UsersProfile {
+	constructor(public name: string) { }
+}
+
+//using mixin to add timestamp functionality to UsersProfile class
+class UserWithTypestamp extends timeStampMixin(UsersProfile) {
+	constructor(name: string, public age: number) {
+		super(name);
+	}
+	displayInfo() {
+		return `Name: ${this.name}, Age: ${this.age}, Timestamp: ${this.timeStamp}`;
+	}
+}
+const userWithTimestamp = new UserWithTypestamp('John Doe', 30);
+// console.log(userWithTimestamp.displayInfo());
+
+/* another example of mixins */
+class BooksWithTimestamp extends timeStampMixin(Book) {
+	constructor(title: string, author: string, ISBN: string, public genre: string, yearPublished?: number) {
+		super(title, author, ISBN, yearPublished);
+	}
+	getBookInfo() {
+		return `Title: ${this.title}, Author: ${this.author}, Genre: ${this.genre}, Timestamp: ${this.timeStamp}`;
+	}
+}
+
+// const bookWithTimestamp = new BooksWithTimestamp('The Great Gatsby', 'F. Scott Fitzgerald', '987-654-321', 'Fiction', 1925);
+// console.log(bookWithTimestamp.getBookInfo());
