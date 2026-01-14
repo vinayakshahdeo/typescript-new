@@ -618,6 +618,58 @@ class BooksWithTimestamp extends timeStampMixin(Book) {
 		return `Title: ${this.title}, Author: ${this.author}, Genre: ${this.genre}, Timestamp: ${this.timeStamp}`;
 	}
 }
-
 // const bookWithTimestamp = new BooksWithTimestamp('The Great Gatsby', 'F. Scott Fitzgerald', '987-654-321', 'Fiction', 1925);
 // console.log(bookWithTimestamp.getBookInfo());
+
+/* Exercise */
+
+/**
+ * ! You are developing a simple employee management system for a company. Implement the following requirements using TypeScript:
+ *
+ * TODO: 1. Class Definition: Create a class Employee with the following properties:
+ ** -  name (string, public)
+ ** -  age (number, public)
+ ** -  salary (number, private)
+ ** -  id (number, protected)
+ *
+ * TODO: 2. Use shorthand syntax in the constructor to initialize the properties name and age.
+ *
+ * TODO: 3. Implement getter and setter methods for the salary property. The setter should ensure the salary is a positive number.
+ *
+ * TODO: 4. Add a static property companyName (string, public) and a static method getCompanyName that returns the company name.
+ *
+ * TODO: 5. Create a subclass Manager that extends the Employee class. Add an additional property department (string, public).
+ *
+ * TODO: 6. Override a method getDetails in the Manager class to include the department information along with the employee details.
+ */
+
+class Employyee {
+	static companyname: string = 'Zerodha';//static property
+	constructor(public name: string, public age: number, private _salary: number, protected id: number) { }
+	get salary(): number {
+		return this.salary;
+	}
+	set salary(salary: number) {
+		if (salary < 0) {
+			throw new Error('Salary must be a positive number');
+		}
+		this._salary = salary;
+	}
+	static getCompanyName() {
+		return this.companyname;
+	}
+	getDetails() {
+		return `Name: ${this.name}, Age: ${this.age}, salary: ${this._salary}, ID: ${this.id}, Company: ${Employyee.getCompanyName()}`;
+	}
+}
+
+class Managerr extends Employyee {
+	constructor(name: string, age: number, salary: number, id: number, public department: string) {
+		super(name, age, salary, id);
+	}
+	getDetails(): string {
+		return `${super.getDetails()}, Department: ${this.department}`;
+	}
+}
+const ManagerVinayak = new Managerr('Vinayak', 32, 320000, 41, 'Engineering');
+console.log(ManagerVinayak.getDetails());
