@@ -536,8 +536,47 @@ class Box<T> {
 
 const stringBox = new Box<string>('Hello, Generics!');
 stringBox.value = 'Updated Value';//updating value with setter
-console.log(stringBox.getContents());
+// console.log(stringBox.getContents());
 const numberBox = new Box<number>(42);
 
 // console.log(stringBox.getContents()); // Hello, Generics!
 // console.log(numberBox.getContents()); // 42
+
+type Identifiable = {
+	id: number;
+};
+class Repository<T extends Identifiable> {//union of T with Identifiable type
+	private items: T[] = [];
+
+	addItem(item: T): void {
+		this.items.push(item);
+	}
+
+	getItems(): T[] {
+		return this.items;
+	}
+	getById(number: number): T | undefined {
+		return this.items.find((item) => item.id === number);
+	}
+	getAll(): T[] {
+		return this.items;
+	}
+	removeItem(id: number): void {
+		this.items = this.items.filter((item) => item.id !== id);
+	}
+}
+type Userr = Identifiable & {//extending Identifiable type	with additional properties
+	name: string;
+	email: string;
+};
+
+const userrRepo = new Repository<Userr>();
+userrRepo.addItem({ id: 1, name: 'Alice', email: 'alice@example.com' });
+// newRepo.addItem({ id: 2, name: 'Bob' });//error because class got intialized as Userr type which requires email property
+// console.log(userrRepo.getById(1));
+
+const bookRepo = new Repository<Book & Identifiable>();
+bookRepo.addItem({ id: 1, title: '1984', author: 'George Orwell', ISBN: '123-456-789' });
+// bookRepo.addItem({ id: 1, name: 'Alice', email: 'alice@example.com' });//error because class got intialized as Book & Identifiable type which requires title, author and ISBN property
+// console.log(bookRepo.getAll());
+
