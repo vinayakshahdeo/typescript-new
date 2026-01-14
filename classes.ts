@@ -468,7 +468,7 @@ const janeDoe = new Personns('Jane', 'Doe');
 johnDoe.age = 30; // setter called
 johnDoe.age = 25;// can be called multiple times
 //if age is not set and getter is called it will throw error try by commenting above 2 lines or try janeDoe.age
-console.log(johnDoe.age);
+// console.log(johnDoe.age);
 
 /* STATIC */
 class MathUtils {
@@ -507,10 +507,37 @@ class Config {
 
 	static {//invoked once when the class is loaded into memory
 		// static block to initialize static properties
-		console.log('loaded into memory');
+		/* console.log('loaded into memory'); */
 		Config.settings['apiUrl'] = 'https://api.example.com';
 		Config.settings['timeout'] = '5000';
 	}
 }
 
-console.log(Config.settings); // { apiUrl: 'https://api.example.com', timeout: '5000' }
+// console.log(Config.settings); // { apiUrl: 'https://api.example.com', timeout: '5000' }
+
+/* Generics With Classes */
+class Box<T> {
+	private _value: T;
+
+	constructor(value: T) {
+		this._value = value;
+	}
+
+	get value(): T {
+		return this._value;
+	}
+	set value(value: T) {
+		this._value = value;
+	}
+	getContents(): T {
+		return this._value;
+	}
+}
+
+const stringBox = new Box<string>('Hello, Generics!');
+stringBox.value = 'Updated Value';//updating value with setter
+console.log(stringBox.getContents());
+const numberBox = new Box<number>(42);
+
+// console.log(stringBox.getContents()); // Hello, Generics!
+// console.log(numberBox.getContents()); // 42
