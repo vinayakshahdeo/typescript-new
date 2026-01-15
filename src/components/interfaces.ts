@@ -66,4 +66,64 @@ const person1: Person = {
   email: 'alice@example.com',
   age: 30,
 };
-console.log(person1.name); // Output: Alice
+// console.log(person1); // Output: Alice
+
+/* Extending Interfaces */
+interface Users {
+  name: string;
+  email: string;
+  gender: string;
+  phone: number;
+}
+interface UserswithAddress extends Users {
+  address: string;
+}
+const user1: UserswithAddress = {
+  name: 'Bob',
+  email: 'bob@example.com',
+  gender: 'male',
+  phone: 1234567890,
+  address: 'ranchi',
+};
+//console.log(user1); // Output: ranchi
+
+enum Roles {
+  ADMIN = 'admin',
+  USER = 'user',
+  GUEST = 'guest',
+}
+interface Role {
+  role: Roles;
+}
+enum PermissionsList {
+  READ = 'read',
+  WRITE = 'write',
+  DELETE = 'delete',
+}
+
+interface UserPermisions extends Role {
+  permissions: PermissionsList[];
+}
+
+interface AdminUser extends Users, Role, UserPermisions {
+  numberOfUsersReporting: number;
+}
+const admin1: AdminUser = {
+  name: 'Charlie',
+  email: 'charlie@example.com',
+  gender: 'male',
+  phone: 9876543210,
+  role: Roles.ADMIN,
+  permissions: [PermissionsList.READ, PermissionsList.WRITE, PermissionsList.DELETE],
+  numberOfUsersReporting: 5,
+};
+console.log(admin1);
+/*  {
+name: 'Charlie',
+	email: 'charlie@example.com',
+		gender: 'male',
+			phone: 9876543210,
+				role: 'admin',
+					permissions: ['read', 'write', 'delete'],
+						numberOfUsersReporting: 5
+} */
