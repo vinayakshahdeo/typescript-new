@@ -168,3 +168,20 @@ const bmw: Automobile<AutomobileTypes, AutomobileBrands, AutomobileColors> = {
   description: 'BMW is a German luxury vehicle manufacturer known for its performance and quality.',
 };
 // console.log(bmw);
+const honda: Automobile<AutomobileTypes, AutomobileBrands, AutomobileColors> = {
+  type: AutomobileTypes.MOTORCYCLE,
+  brand: AutomobileBrands.HONDA,
+  colors: [AutomobileColors.RED, AutomobileColors.BLUE, AutomobileColors.GREEN],
+  description:
+    'Honda is a Japanese multinational conglomerate known for manufacturing automobiles, motorcycles, and power equipment.',
+};
+// console.log(honda);
+
+const toyota: Automobile<string, AutomobileBrands, number> = {
+  type: 'car',
+  brand: AutomobileBrands.TOYOTA,
+  colors: [0o1, 0o2, 0o3],
+  description:
+    'Toyota is a Japanese multinational automotive manufacturer known for its reliable and fuel-efficient vehicles.',
+};
+// console.log(toyota);
