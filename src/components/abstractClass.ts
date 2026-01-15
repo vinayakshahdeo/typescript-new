@@ -4,7 +4,7 @@ abstract class Department {
 	constructor(protected name: string) { }
 
 	describe(this: Department) {
-		console.log(`Department: ${this.name}`);
+		return `Department: ${this.name}`;
 	}
 }
 
