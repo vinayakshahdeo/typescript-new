@@ -52,5 +52,5 @@ const adminDepartment = new AdminDepartment();
 itDepartment.addHolidays(itHolidays);
 adminDepartment.addHolidays(adminHolidays);
 
-console.log(itDepartment.showHolidays());
+console.log(itDepartment.printHolidays());
 console.log(adminDepartment.describe());
