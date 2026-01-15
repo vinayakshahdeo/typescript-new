@@ -4,26 +4,26 @@
 // console.log('hello worlds');
 
 const students = [
-  { name: 'John', score: 70 },
-  { name: 'Mark', score: 90 },
+	{ name: 'John', score: 70 },
+	{ name: 'Mark', score: 90 },
 ];
 for (const student of students) {
-  // commented for clean out console
-  // console.log("Name:", student.name);
-  // console.log("Score:", student.score);
+	// commented for clean out console
+	// console.log("Name:", student.name);
+	// console.log("Score:", student.score);
 }
 
 //first ts function
 //@ts-ignore
 function addNumbers(a, b) {
-  return a + b;
+	return a + b;
 }
 
 // console.log(addNumbers(2, 4)); //6
 // console.log(addNumbers('100', 2)); // this will not throw error in js but in ts it will throw error as below
 
 function addNumber(a: number, b: number) {
-  return a + b;
+	return a + b;
 }
 
 // console.log(addNumber(2, 4));
@@ -105,11 +105,11 @@ let id = Symbol(1234);
 let alphabeticId = Symbol('id');
 
 let users = {
-  name: 'mark',
-  [id]: '1234',
-  getId() {
-    return this[id];
-  },
+	name: 'mark',
+	[id]: '1234',
+	getId() {
+		return this[id];
+	},
 };
 // console.log(users.id); //undefined
 console.log(users.getId()); //1234
