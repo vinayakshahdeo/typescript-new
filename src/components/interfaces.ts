@@ -130,12 +130,6 @@ name: 'Charlie',
 
 /* Interfaces with Generics */
 
-interface Automobile<Type, Brand, Colors> {
-  type: Type;
-  brand: Brand;
-  colors: Colors[];
-  description: string;
-}
 enum AutomobileTypes {
   CAR = 'Car',
   TRUCK = 'Truck',
@@ -160,3 +154,17 @@ enum AutomobileColors {
   WHITE = 'White',
   SILVER = 'Silver',
 }
+interface Automobile<Type, Brand, Colors> {
+  type: Type;
+  brand: Brand;
+  colors: Colors[];
+  description: string;
+}
+
+const bmw: Automobile<AutomobileTypes, AutomobileBrands, AutomobileColors> = {
+  type: AutomobileTypes.CAR,
+  brand: AutomobileBrands.BMW,
+  colors: [AutomobileColors.BLACK, AutomobileColors.WHITE, AutomobileColors.SILVER],
+  description: 'BMW is a German luxury vehicle manufacturer known for its performance and quality.',
+};
+// console.log(bmw);
