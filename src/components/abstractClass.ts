@@ -35,11 +35,29 @@ class ITDepartment extends Department {
   constructor() {
     super('IT Department');
   }
+  printHolidays() {
+    if (this.holidays.length === 0) {
+      return 'No holidays added.';
+    }
+    console.log(`here are the holidays for the ${this.name}:`);
+    this.holidays.forEach((holiday: Holiday, index: number) => {
+      console.log(`${index + 1} ${holiday.reason} on ${holiday.date.toDateString()}`);
+    });
+  }
 }
 class AdminDepartment extends Department {
   protected holidays: Holidays = [];
   constructor() {
     super('Admin Department');
+  }
+  printHolidays() {
+    if (this.holidays.length === 0) {
+      return 'No holidays added.';
+    }
+    console.log(`here are the holidays for the ${this.name}:`);
+    this.holidays.forEach((holiday: Holiday, index: number) => {
+      console.log(`${index + 1} ${holiday.reason} on ${holiday.date.toDateString()}`);
+    });
   }
 }
 
@@ -58,5 +76,5 @@ const adminDepartment = new AdminDepartment();
 itDepartment.addHolidays(itHolidays);
 adminDepartment.addHolidays(adminHolidays);
 
-// itDepartment.printHolidays();
-// console.log(adminDepartment.describe());
+itDepartment.printHolidays();
+adminDepartment.printHolidays();
