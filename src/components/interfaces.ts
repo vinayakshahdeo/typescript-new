@@ -8,6 +8,10 @@
 //interfaces are similar to type aliases but they can be extended and implemented
 // interfaces can only be used to define the shape of an object or a function
 // type aliases can be used to define the shape of any type
+
+function print<T>(data: T): void {
+  console.log(data);
+}
 interface User {
   username: string;
   email: string;
@@ -323,4 +327,77 @@ class User2 implements IUser {
     return `Name: ${this.name}, Email: ${this.email}, Age: ${this.age}`;
   }
 }
-/* difference between types, interfaces and abstact classes */
+/* Difference between types, interfaces and abstact classes */
+
+type UserType1 = {
+  username: string;
+};
+type AdminType1 = { isAdmin: boolean };
+
+//intersection of two types using types and & operator not possible using interfaces and intersections are not available with interfaces
+
+const adminUser1: UserType1 & AdminType1 = {
+  username: 'JohnDoe',
+  isAdmin: true,
+};
+// print(adminUser1); // Output: { username: 'admin', isAdmin: true }
+
+//union of two types using types and | operator not possible using interfaces and unions are not available with interfaces
+
+const userOrAdmin: UserType1 | AdminType1 = {
+  username: 'JaneDoe',
+};
+print(userOrAdmin); // Output: { username: 'JaneDoe' }
+
+// tuples can be used with types but not with interfaces
+
+type UserTuple = [string, number];
+const userTuple: UserTuple = ['Alice', 30];
+print(userTuple); // Output: ['Alice', 30]
+
+//trying to redeclare types. not possible with types but possible with interfaces
+
+/* type UserType1 = {
+	username: string;
+};  Error: Duplicate identifier 'UserType1' */
+
+interface Person2 {
+  firstName: string;
+}
+interface Person2 {
+  age: number;
+} //no error
+interface Person3 extends Person2 {
+  lastName: string;
+}
+interface Person4 {
+  email: string;
+}
+const person2: Person2 = {
+  firstName: 'Bob',
+  age: 25, //comment to see Property 'age' is missing in type '{ firstName: string; }' but required in type 'Person2'as they got merged
+};
+print(person2); // Output: { name: 'Bob', age: 25 }
+
+const person3: Person3 = {
+  firstName: 'Charlie',
+  lastName: 'Brown',
+  age: 28,
+};
+print(person3); //Output: { firstName: 'Charlie', lastName: 'Brown', age: 28 }
+//types can't be merged, types cant be extended
+
+//custom types cpuld not be implemented using classes but interfaces can be implemented using classes
+class Person5 implements Person3, Person4 {
+  constructor(
+    public firstName: string,
+    public lastName: string,
+    public age: number,
+    public email: string
+  ) {}
+  getInfo() {
+    return `Name: ${this.firstName} ${this.lastName}, Age: ${this.age}, Email: ${this.email}`;
+  }
+}
+const person5 = new Person5('David', 'Smith', 35, 'david@example.com');
+print(person5.getInfo()); // Output: Name: David Smith, Age: 35, Email: david@example.com
