@@ -260,3 +260,25 @@ const toyotaBus = new Bus(
   new Date()
 );
 // console.log(toyotaBus.busInfo());
+
+/* Multiple Inheritance in Classes using Interfaces
+In TypeScript, you can achieve multiple inheritance through interfaces. 
+Interfaces allow you to define a contract or blueprint for classes that implement them.
+*/
+
+class Users {
+  constructor(
+    public name: string,
+    public email: string
+  ) {}
+  getName() {
+    return this.name;
+  }
+}
+class Password {
+  constructor(public password: string) {}
+  getPassword() {
+    return this.password;
+  }
+}
+/* class RegisteredUser extends Users, Password { } Classes can only extend a single class. */
