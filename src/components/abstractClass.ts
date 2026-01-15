@@ -6,7 +6,7 @@ type Holidays = Holiday[];
 abstract class Department {
   protected abstract holidays: Holidays;
   constructor(protected name: string) {}
-
+  abstract printHolidays(): void; //abstract method to be implemented by subclasses
   describe(this: Department) {
     return `Department: ${this.name}`;
   }
@@ -17,14 +17,6 @@ abstract class Department {
         this.holidays.push(holiday);
       }
     }
-  }
-  printHolidays() {
-    if (this.holidays.length === 0) {
-      return 'No holidays added.';
-    }
-    this.holidays.forEach((holiday: Holiday, index: number) => {
-      console.log(`${index + 1} ${holiday.reason} on ${holiday.date.toDateString()}`);
-    });
   }
 }
 
