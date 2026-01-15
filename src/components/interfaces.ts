@@ -401,3 +401,51 @@ class Person5 implements Person3, Person4 {
 }
 const person5 = new Person5('David', 'Smith', 35, 'david@example.com');
 // print(person5.getInfo()); // Output: Name: David Smith, Age: 35, Email: david@example.com
+
+/* The key distinction is that abstract classes can have method implementations, which can be inherited by subclasses, while interfaces can only define method signatures without any implementation. */
+abstract class PersonAbstract {
+  public abstract firstName: string;
+  public abstract lastName: string;
+  public getFullName(): string {
+    return `Hello ${this.firstName} ${this.lastName}`;
+  }
+}
+
+class RegisterPersonAbstract extends PersonAbstract {
+  constructor(
+    public firstName: string,
+    public lastName: string
+  ) {
+    super();
+  }
+  public static nameClass() {
+    print('This is a static method in abstract class');
+  }
+}
+
+// const registerPerson = new RegisterPersonAbstract('Eve', 'Johnson');
+RegisterPersonAbstract.nameClass();
+// print(registerPerson.getFullName()); // Output: Hello Eve Johnson
+interface UserAbstract {
+  firstName: string;
+  lastName: string;
+  getFullName: () => void;
+}
+class RegisterUserAbstract implements UserAbstract {
+  constructor(
+    public firstName: string,
+    public lastName: string
+  ) {}
+  getFullName() {
+    //comment out the line below it can't be forced only definition can be forced
+    return `Hello ${this.firstName} ${this.lastName}`;
+  }
+}
+const registerUser = new RegisterUserAbstract('Frank', 'Williams');
+print(registerUser.getFullName()); // Output: Hello Frank Williams
+
+/*  classes can implement multiple interfaces but can extend only one abstract class.
+abstract classes can have static methods and properties but interfaces cannot have static methods and properties.
+ interfaces are more flexible and can be used to define the shape of objects, functions, and classes, while abstract classes are primarily used for creating base classes with shared functionality. */
+
+/* if any static methods are required use abstract class else only for contracts use interfaces */
