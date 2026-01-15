@@ -19,6 +19,9 @@ abstract class Department {
     }
   }
   printHolidays() {
+    if (this.holidays.length === 0) {
+      return 'No holidays added.';
+    }
     return this.holidays;
   }
 }
