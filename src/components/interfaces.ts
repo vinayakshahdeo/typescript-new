@@ -50,6 +50,20 @@ class Auth {
   }
 }
 const admin = new Admin('admin', 'admin@abc.com', 10);
-Auth.login(admin);
+// Auth.login(admin);
 const customer = new Customer('john_doe', 'johndoe@gmail.com', ['item1', 'item2']);
-Auth.login(customer);
+// Auth.login(customer);
+
+interface Person {
+  name: string;
+  email: string;
+  age: number;
+  phone?: number; //optional property
+  greet?(): void; //optional method
+}
+const person1: Person = {
+  name: 'Alice',
+  email: 'alice@example.com',
+  age: 30,
+};
+console.log(person1.name); // Output: Alice
