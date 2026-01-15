@@ -1,7 +1,7 @@
 /* Abstract Classes */
 //abstract classes cant be initialized directly
-
-type Holidays = { date: Date; reason: string }[];
+type Holiday = { date: Date; reason: string };
+type Holidays = Holiday[];
 
 abstract class Department {
   protected abstract holidays: Holidays;
@@ -22,9 +22,12 @@ abstract class Department {
     if (this.holidays.length === 0) {
       return 'No holidays added.';
     }
-    return this.holidays;
+    this.holidays.forEach((holiday: Holiday, index: number) => {
+      console.log(`${index + 1} ${holiday.reason} on ${holiday.date.toDateString()}`);
+    });
   }
 }
+
 // const department = new Department('Accounting'); // Error: Cannot create an instance of an abstract class.
 
 class ITDepartment extends Department {
@@ -41,13 +44,13 @@ class AdminDepartment extends Department {
 }
 
 const itHolidays: Holidays = [
-  { date: new Date('2026-12-25'), reason: 'Christmas' },
   { date: new Date('2026-01-01'), reason: 'New Year' },
+  { date: new Date('2026-12-25'), reason: 'Christmas' },
 ];
 
 const adminHolidays: Holidays = [
-  { date: new Date('2026-12-10'), reason: 'Admin Department Day' },
   { date: new Date('2026-01-01'), reason: 'New Year' },
+  { date: new Date('2026-12-10'), reason: 'Admin Department Day' },
 ];
 
 const itDepartment = new ITDepartment();
@@ -55,5 +58,5 @@ const adminDepartment = new AdminDepartment();
 itDepartment.addHolidays(itHolidays);
 adminDepartment.addHolidays(adminHolidays);
 
-console.log(itDepartment.printHolidays());
-console.log(adminDepartment.describe());
+// itDepartment.printHolidays();
+// console.log(adminDepartment.describe());
