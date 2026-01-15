@@ -185,3 +185,47 @@ const toyota: Automobile<string, AutomobileBrands, number> = {
     'Toyota is a Japanese multinational automotive manufacturer known for its reliable and fuel-efficient vehicles.',
 };
 // console.log(toyota);
+
+/* interfaces with classes */
+
+class Car implements Automobile<AutomobileTypes, AutomobileBrands, AutomobileColors> {
+  public type: AutomobileTypes = AutomobileTypes.CAR;
+  constructor(
+    public brand: AutomobileBrands,
+    public colors: AutomobileColors[],
+    public description: string
+  ) {}
+
+  carInfo() {
+    return `${this.brand} is a ${this.type} available in colors: ${this.colors.join(
+      ', '
+    )}. Description: ${this.description}`;
+  }
+}
+const tesla = new Car(
+  AutomobileBrands.TESLA,
+  [AutomobileColors.RED, AutomobileColors.BLACK],
+  'Tesla, Inc. is an American electric vehicle and clean energy company founded by Elon Musk.'
+);
+// console.log(tesla.carInfo());
+
+class Truck implements Automobile<AutomobileTypes, AutomobileBrands, AutomobileColors> {
+  public type: AutomobileTypes = AutomobileTypes.TRUCK;
+  constructor(
+    public brand: AutomobileBrands,
+    public colors: AutomobileColors[],
+    public description: string
+  ) {}
+
+  truckInfo() {
+    return `${this.brand} is a ${this.type} available in colors: ${this.colors.join(
+      ', '
+    )}. Description: ${this.description}`;
+  }
+}
+const ford = new Truck(
+  AutomobileBrands.FORD,
+  [AutomobileColors.BLUE, AutomobileColors.SILVER],
+  'Ford Motor Company is an American multinational automaker that has its main headquarters in Dearborn, Michigan.'
+);
+console.log(ford.truckInfo());
