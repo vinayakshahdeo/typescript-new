@@ -152,3 +152,4 @@ vite.config.ts.timestamp-*
 
 #remove local branches which dont exist in remote
 delete-local-branches.sh
+move.sh
