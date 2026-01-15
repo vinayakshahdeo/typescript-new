@@ -136,3 +136,27 @@ interface Automobile<Type, Brand, Colors> {
   colors: Colors[];
   description: string;
 }
+enum AutomobileTypes {
+  CAR = 'Car',
+  TRUCK = 'Truck',
+  BUS = 'Bus',
+  VAN = 'Van',
+  MOTORCYCLE = 'Motorcycle',
+}
+
+enum AutomobileBrands {
+  TESLA = 'Tesla',
+  FORD = 'Ford',
+  TOYOTA = 'Toyota',
+  HONDA = 'Honda',
+  BMW = 'BMW',
+}
+
+enum AutomobileColors {
+  RED = 'Red',
+  BLUE = 'Blue',
+  GREEN = 'Green',
+  BLACK = 'Black',
+  WHITE = 'White',
+  SILVER = 'Silver',
+}
