@@ -229,3 +229,34 @@ const ford = new Truck(
   'Ford Motor Company is an American multinational automaker that has its main headquarters in Dearborn, Michigan.'
 );
 // console.log(ford.truckInfo());
+interface CommercialVehicle {
+  type: AutomobileTypes;
+  capacity: number;
+  licenseRenewalDate: Date;
+}
+class Bus
+  implements Automobile<AutomobileTypes, AutomobileBrands, AutomobileColors>, CommercialVehicle
+{
+  public type: AutomobileTypes = AutomobileTypes.BUS;
+  constructor(
+    public brand: AutomobileBrands,
+    public colors: AutomobileColors[],
+    public description: string,
+    public capacity: number,
+    public licenseRenewalDate: Date
+  ) {}
+
+  busInfo() {
+    return `${this.brand} is a ${this.type} with a capacity of ${this.capacity} passengers, available in colors: ${this.colors.join(
+      ', '
+    )}. Description: ${this.description}. License Renewal Date: ${this.licenseRenewalDate.toDateString()}`;
+  }
+}
+const toyotaBus = new Bus(
+  AutomobileBrands.TOYOTA,
+  [AutomobileColors.GREEN, AutomobileColors.WHITE],
+  'Toyota Bus is known for its reliability and comfort in public transportation.',
+  50000,
+  new Date()
+);
+// console.log(toyotaBus.busInfo());
