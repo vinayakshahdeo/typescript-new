@@ -347,13 +347,13 @@ const adminUser1: UserType1 & AdminType1 = {
 const userOrAdmin: UserType1 | AdminType1 = {
   username: 'JaneDoe',
 };
-print(userOrAdmin); // Output: { username: 'JaneDoe' }
+// print(userOrAdmin); // Output: { username: 'JaneDoe' }
 
 // tuples can be used with types but not with interfaces
 
 type UserTuple = [string, number];
 const userTuple: UserTuple = ['Alice', 30];
-print(userTuple); // Output: ['Alice', 30]
+// print(userTuple); // Output: ['Alice', 30]
 
 //trying to redeclare types. not possible with types but possible with interfaces
 
@@ -377,14 +377,14 @@ const person2: Person2 = {
   firstName: 'Bob',
   age: 25, //comment to see Property 'age' is missing in type '{ firstName: string; }' but required in type 'Person2'as they got merged
 };
-print(person2); // Output: { name: 'Bob', age: 25 }
+// print(person2); // Output: { name: 'Bob', age: 25 }
 
 const person3: Person3 = {
   firstName: 'Charlie',
   lastName: 'Brown',
   age: 28,
 };
-print(person3); //Output: { firstName: 'Charlie', lastName: 'Brown', age: 28 }
+// print(person3); //Output: { firstName: 'Charlie', lastName: 'Brown', age: 28 }
 //types can't be merged, types cant be extended
 
 //custom types cpuld not be implemented using classes but interfaces can be implemented using classes
@@ -400,4 +400,4 @@ class Person5 implements Person3, Person4 {
   }
 }
 const person5 = new Person5('David', 'Smith', 35, 'david@example.com');
-print(person5.getInfo()); // Output: Name: David Smith, Age: 35, Email: david@example.com
+// print(person5.getInfo()); // Output: Name: David Smith, Age: 35, Email: david@example.com
