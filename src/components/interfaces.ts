@@ -424,7 +424,7 @@ class RegisterPersonAbstract extends PersonAbstract {
 }
 
 // const registerPerson = new RegisterPersonAbstract('Eve', 'Johnson');
-RegisterPersonAbstract.nameClass();
+// calling static method without creating instance RegisterPersonAbstract.nameClass();
 // print(registerPerson.getFullName()); // Output: Hello Eve Johnson
 interface UserAbstract {
   firstName: string;
@@ -442,7 +442,7 @@ class RegisterUserAbstract implements UserAbstract {
   }
 }
 const registerUser = new RegisterUserAbstract('Frank', 'Williams');
-print(registerUser.getFullName()); // Output: Hello Frank Williams
+// print(registerUser.getFullName()); // Output: Hello Frank Williams
 
 /*  classes can implement multiple interfaces but can extend only one abstract class.
 abstract classes can have static methods and properties but interfaces cannot have static methods and properties.
