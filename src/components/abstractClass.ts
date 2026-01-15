@@ -68,5 +68,5 @@ const adminDepartment = new AdminDepartment();
 itDepartment.addHolidays(itHolidays);
 adminDepartment.addHolidays(adminHolidays);
 
-itDepartment.printHolidays();
-adminDepartment.printHolidays();
+// itDepartment.printHolidays();
+// adminDepartment.printHolidays();
