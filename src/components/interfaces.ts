@@ -266,7 +266,7 @@ In TypeScript, you can achieve multiple inheritance through interfaces.
 Interfaces allow you to define a contract or blueprint for classes that implement them.
 */
 
-class Users {
+class Users1 {
   constructor(
     public name: string,
     public email: string
@@ -282,3 +282,45 @@ class Password {
   }
 }
 /* class RegisteredUser extends Users, Password { } Classes can only extend a single class. */
+/* Interfaces with access Modidiers */
+/* Interfaces work with public access modifier by default */
+interface IRegisteredUser {
+  name: string;
+  email: string;
+  password: string;
+}
+class RegisteredUser implements IRegisteredUser {
+  constructor(
+    public name: string, //make private to get error
+    public email: string, //make private to get error
+    public password: string //make private to get error
+  ) {}
+  getDetails() {
+    return `Name: ${this.name}, Email: ${this.email}`;
+  }
+}
+
+/*Declartion Merging */
+
+interface IUser {
+  name: string;
+  email: string;
+}
+
+interface IUser {
+  age: number;
+  getInfo(): string;
+}
+
+//Iuser will merge since both have same name
+class User2 implements IUser {
+  constructor(
+    public name: string,
+    public email: string,
+    public age: number //from merged interface
+  ) {}
+  getInfo() {
+    return `Name: ${this.name}, Email: ${this.email}, Age: ${this.age}`;
+  }
+}
+/* difference between types, interfaces and abstact classes */
