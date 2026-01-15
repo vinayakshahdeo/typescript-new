@@ -228,4 +228,4 @@ const ford = new Truck(
   [AutomobileColors.BLUE, AutomobileColors.SILVER],
   'Ford Motor Company is an American multinational automaker that has its main headquarters in Dearborn, Michigan.'
 );
-console.log(ford.truckInfo());
+// console.log(ford.truckInfo());
