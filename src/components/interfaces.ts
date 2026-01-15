@@ -117,7 +117,7 @@ const admin1: AdminUser = {
   permissions: [PermissionsList.READ, PermissionsList.WRITE, PermissionsList.DELETE],
   numberOfUsersReporting: 5,
 };
-console.log(admin1);
+// console.log(admin1);
 /*  {
 name: 'Charlie',
 	email: 'charlie@example.com',
@@ -127,3 +127,12 @@ name: 'Charlie',
 					permissions: ['read', 'write', 'delete'],
 						numberOfUsersReporting: 5
 } */
+
+/* Interfaces with Generics */
+
+interface Automobile<Type, Brand, Colors> {
+  type: Type;
+  brand: Brand;
+  colors: Colors[];
+  description: string;
+}
