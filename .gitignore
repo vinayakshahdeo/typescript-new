@@ -139,10 +139,10 @@ vite.config.js.timestamp-*
 vite.config.ts.timestamp-*
 
 # Ignore JavaScript files
-*.js
+dist/*.js
 
 # Ignore JavaScript sourcemaps
-*.js.map
+dist/*.js.map
 
 # Ignore TypeScript declaration files
 *.d.ts
@@ -153,3 +153,5 @@ vite.config.ts.timestamp-*
 #remove local branches which dont exist in remote
 delete-local-branches.sh
 move.sh
+
+*.config.js
