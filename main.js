@@ -6,14 +6,11 @@ const book = {
   read() {
     console.log(this);
   },
+  authors: ['John Doe', 'Jane Smith'],
+  printAuthors() {
+    this.authors.forEach(function (author) {
+      console.log(author); //refers to global object
+    });
+  },
 };
-book.read(); //refers to book object
-book.stopReading = function () {
-  console.log(this);
-}; //added method to book object
-book.stopReading(); //refers to book object
-
-function watchMovie() {
-  console.log(this);
-}
-watchMovie(); //refers to global object
+book.printAuthors(); //refers to author values inside forEach
