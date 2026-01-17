@@ -1,5 +1,9 @@
 {
   // Visit https://aka.ms/tsconfig to read more about this file
+  //exclude property is used to exclude files from compilation
+  //   "exclude": ["app.ts", "node_modules", "dist", "*.exclude.ts", "**/*.exclude.ts"],
+  //   "include" property is used to include files for compilation
+  //   "include": ["src/components"],
   "compilerOptions": {
     // File Layout
     "rootDir": "./src/components",
@@ -8,7 +12,7 @@
     // Environment Settings
     // See also https://aka.ms/tsconfig/module
     "module": "nodenext",
-    "target": "esnext",
+    "target": "esnext", //type of js to be generated
     "types": [],
     // For nodejs:
     // "lib": ["esnext"],
