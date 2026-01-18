@@ -1,73 +1,73 @@
 /* Linked List using js classes */
-class Node {
-	value: number;
-	next: Node | null;
+class ListNode {
+  value: number;
+  next: ListNode | null;
 
-	constructor(value: number) {
-		this.value = value;
-		this.next = null;
-	}
+  constructor(value: number) {
+    this.value = value;
+    this.next = null;
+  }
 }
 
 class LinkedList {
-	head: Node | null;
+  head: ListNode | null;
 
-	constructor() {
-		this.head = null;
-	}
+  constructor() {
+    this.head = null;
+  }
 
-	append(value: number) {
-		const newNode = new Node(value);
-		if (!this.head) {
-			this.head = newNode;
-			return;
-		}
-		let current = this.head;
-		while (current.next) {
-			current = current.next;
-		}
-		current.next = newNode;
-	}
+  append(value: number) {
+    const newNode = new ListNode(value);
+    if (!this.head) {
+      this.head = newNode;
+      return;
+    }
+    let current = this.head;
+    while (current.next) {
+      current = current.next;
+    }
+    current.next = newNode;
+  }
 
-	printList() {
-		let current = this.head;
-		const values: number[] = [];
-		while (current) {
-			values.push(current.value);
-			current = current.next;
-		}
-		console.log(values.join(' -> '));
-	}
-	reverse() {
-		let prev: Node | null = null;
-		let current: Node | null = this.head;
-		let next: Node | null = null;
+  printList() {
+    let current = this.head;
+    const values: number[] = [];
+    while (current) {
+      values.push(current.value);
+      current = current.next;
+    }
+    console.log(values.join(' -> '));
+  }
+  reverse() {
+    let prev: ListNode | null = null;
+    let current: ListNode | null = this.head;
+    let next: ListNode | null = null;
 
-		while (current) {
-			next = current.next;
-			current.next = prev;
-			prev = current;
-			current = next;
-		}
-		this.head = prev;
-	}
-	remove(value: number) {
-		if (!this.head) return;
+    while (current) {
+      next = current.next;
+      current.next = prev;
+      prev = current;
+      current = next;
+    }
+    this.head = prev;
+  }
+  remove(value: number) {
+    if (!this.head) return;
 
-		if (this.head.value === value) {
-			this.head = this.head.next;
-			return;
-		}
+    if (this.head.value === value) {
+      this.head = this.head.next;
+      return;
+    }
 
-		let current = this.head;
-		while (current.next && current.next.value !== value) {
-			current = current.next;
-		}
+    let current = this.head;
+    while (current.next && current.next.value !== value) {
+      current = current.next;
+    }
 
-		if (current.next) {
-			current.next = current.next.next;
-		}
-	}
+    if (current.next) {
+      current.next = current.next.next;
+    }
+  }
 }
 
 const list = new LinkedList();

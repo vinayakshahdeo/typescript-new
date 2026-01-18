@@ -24,8 +24,12 @@
     ],
     "semi": ["error", "always"],
     "quotes": ["error", "single"],
-    "no-unused-vars": "warn",
+    "no-unused-vars": "off",
     "eqeqeq": ["error", "always"],
-    "@typescript-eslint/no-explicit-any": "off"
+    "@typescript-eslint/no-explicit-any": "off",
+    "@typescript-eslint/no-namespace": "off",
+    "no-inner-declarations": "off",
+    "@typescript-eslint/ban-types": "off",
+    "@typescript-eslint/no-empty-function": "off"
   }
 }

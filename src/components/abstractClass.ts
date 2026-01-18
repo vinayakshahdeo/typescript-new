@@ -6,7 +6,7 @@ type Holidays = Holiday[];
 abstract class Department {
   protected abstract holidays: Holidays;
   constructor(protected name: string) {}
-  abstract printHolidays(): void; //abstract method to be implemented by subclasses
+  abstract printHolidays(): string; //abstract method to be implemented by subclasses
   describe(this: Department) {
     return `Department: ${this.name}`;
   }
@@ -27,14 +27,15 @@ class ITDepartment extends Department {
   constructor() {
     super('IT Department');
   }
-  printHolidays() {
+  printHolidays(): string {
     if (this.holidays.length === 0) {
       return 'No holidays added.';
     }
-    console.log(`here are the holidays for the ${this.name}:`);
+    let output = `here are the holidays for the ${this.name}:\n`;
     this.holidays.forEach((holiday: Holiday, index: number) => {
-      console.log(`${index + 1} ${holiday.reason} on ${holiday.date.toDateString()}`);
+      output += `${index + 1} ${holiday.reason} on ${holiday.date.toDateString()}\n`;
     });
+    return output;
   }
 }
 class AdminDepartment extends Department {
@@ -42,14 +43,15 @@ class AdminDepartment extends Department {
   constructor() {
     super('Admin Department');
   }
-  printHolidays() {
+  printHolidays(): string {
     if (this.holidays.length === 0) {
       return 'No holidays added.';
     }
-    console.log(`here are the holidays for the ${this.name}:`);
+    let output = `here are the holidays for the ${this.name}:\n`;
     this.holidays.forEach((holiday: Holiday, index: number) => {
-      console.log(`${index + 1} ${holiday.reason} on ${holiday.date.toDateString()}`);
+      output += `${index + 1} ${holiday.reason} on ${holiday.date.toDateString()}\n`;
     });
+    return output;
   }
 }
 
