@@ -17,7 +17,7 @@
   "scripts": {
     "prepare": "husky",
     "start:dev": "tsc -w",
-    "dev": "nodemon ./dist/components/decorators.js",
+    "dev": "node ./dist/components/index.js",
     "lint-staged": "lint-staged"
   },
   "devDependencies": {
