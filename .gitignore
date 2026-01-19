@@ -155,3 +155,4 @@ delete-local-branches.sh
 move.sh
 
 *.config.js
+./.vscode/
