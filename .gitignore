@@ -1,0 +1,13 @@
+node_modules/
+dist/
+src/.d.ts
+.env
+.DS_Store
+LICENSE
+package-lock.json
+npm-debug.log
+yarn-error.log
+.vscode/
+.idea/
+coverage/
+*.log
