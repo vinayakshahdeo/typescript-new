@@ -49,8 +49,3 @@ greet(stud);
 	departmentId: 'D001',
 	department: 'Engineering',
 })); */ // InValid Object literal may only specify known properties, and 'departmentId' does not exist in type 'Person'.
-
-/* Type Soundness */
-// A type system is sound if it guarantees that a program will not perform any operation that is not allowed by its type annotations at runtime.
-// TypeScript is designed to be a sound type system, meaning that if a program type-checks successfully, it should not encounter type-related errors at runtime.
-// However, there are some scenarios where TypeScript's type system may not be completely sound, such as when using type assertions or the any type.
