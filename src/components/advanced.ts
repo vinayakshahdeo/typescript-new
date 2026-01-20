@@ -138,3 +138,19 @@ const tube: Tube = { length: 20, diameter: 5 };
 ball = tube; // it is valid because Tube has all properties of Ball
 // but if we add a property to the interface then it will make them incompatible
 // tube = ball; // InValid Type 'Ball' is not assignable to type 'Tube'. Object literal may only specify known properties, and 'length' does not exist in type 'Tube'.
+
+// creating an intersection type to simulate nominal typing
+
+type ValidatedInputString = string & { __brand: 'ValidatedInputString' };
+const validateUserInput = (input: string) => {
+  const simpleValidatedInput: string = input.trim();
+  return simpleValidatedInput as ValidatedInputString;
+};
+
+const printName = (name: ValidatedInputString): void => {
+  print(`Name: ${name}`);
+};
+printName(validateUserInput('   John Doe   '));
+// printName('   Jane Smith   ');
+/* Argument of type 'string' is not assignable to parameter of type 'ValidatedInputString'.
+  Type 'string' is not assignable to type '{ __brand: "ValidatedInputString"; }'. */
