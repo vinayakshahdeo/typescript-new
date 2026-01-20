@@ -1,4 +1,3 @@
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
 function print<T extends unknown[]>(...params: T): void {
   console.log(...params);
 }
@@ -110,3 +109,32 @@ const getPI = (): number => 3.14;
 
 runFunction(getPI); // InValid Argument of type '() => number' is not assignable to parameter of type '() => void'.
 // Type 'number' is not assignable to type 'void'. but it will run without error at runtime
+
+/* Nominal Vs Structural Type System */
+
+interface Ball {
+  diameter: number;
+  // color: string; // adding this property will make Ball and Sphere incompatible
+}
+interface Sphere {
+  diameter: number;
+}
+
+let ball: Ball = { diameter: 10 };
+let sphere: Sphere = { diameter: 10 };
+
+// since they have same structure, they are compatible in structural type system hence we can assign one to another
+
+ball = sphere; // Valid
+sphere = ball; // Valid
+
+interface Tube {
+  length: number;
+  diameter: number;
+}
+
+const tube: Tube = { length: 20, diameter: 5 };
+
+ball = tube; // it is valid because Tube has all properties of Ball
+// but if we add a property to the interface then it will make them incompatible
+// tube = ball; // InValid Type 'Ball' is not assignable to type 'Tube'. Object literal may only specify known properties, and 'length' does not exist in type 'Tube'.

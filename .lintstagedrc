@@ -1,3 +1,4 @@
 {
-  "*.{js,jsx,ts,tsx}": ["prettier --config .prettierrc --write", "eslint --fix"]
+  "*.{js,jsx,ts,tsx}": ["prettier --config .prettierrc --write", "eslint --fix"],
+  "*.{ts,tsx}": ["tsc --noEmit"]
 }
