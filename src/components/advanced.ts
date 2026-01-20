@@ -154,3 +154,16 @@ printName(validateUserInput('   John Doe   '));
 // printName('   Jane Smith   ');
 /* Argument of type 'string' is not assignable to parameter of type 'ValidatedInputString'.
   Type 'string' is not assignable to type '{ __brand: "ValidatedInputString"; }'. */
+
+/* Type Widening and Type Narrowing */
+
+const welcomeString = 'Welcome to TypeScript'; // TypeScript infers the type as welcome to typescript as it cant be changed in const
+
+let replyString = 'Hi'; // typeScript infers the type as string as it can be changed in let
+replyString = 'Hello';
+
+let unionString: string | undefined;
+// unionString.length;Expected an assignment or function call and instead saw an expression.
+if (unionString) {
+  print(unionString.length); // Type narrowing now we know unionString is string
+}
