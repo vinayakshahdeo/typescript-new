@@ -131,3 +131,18 @@ const person2: PartialPersonDetails = {
   name: 'Charlie',
 };
 print(person2);
+
+/* Required Types */
+/* Required<Type> */
+/* Make all properties in type required */
+
+type RequiredPersonDetails = Required<PartialPersonDetails>;
+
+const person3: RequiredPersonDetails = {
+  name: 'David',
+  age: 40,
+  address: '123 Main St',
+  phone: '555-1234',
+  email: 'david@example.com',
+};
+print(person3);
