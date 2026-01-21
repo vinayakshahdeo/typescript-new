@@ -146,3 +146,17 @@ const person3: RequiredPersonDetails = {
   email: 'david@example.com',
 };
 print(person3);
+
+/* Readonly Types */
+/* Readonly<Type> */
+/* Make all properties in type readonly */
+
+const person4: Readonly<PersonDetails> = {
+  name: 'Eve',
+  age: 28,
+  address: '456 Elm St',
+  phone: '555-5678',
+  email: 'eve@example.com',
+};
+// person4.name = 'Eva'; // Error: Cannot assign to 'name' because it is a read-only property
+console.log(person4);
