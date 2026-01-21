@@ -1,5 +1,9 @@
-function print<T extends unknown[]>(...params: T): void {
-  console.log(...params);
+// function print<T extends unknown[]>(...params: T): void {
+//   console.log(...params);
+// }
+
+function print<T extends unknown[]>(...params: T): T {
+  return { ...params } as T;
 }
 
 /* Sub types and Super types */
@@ -162,6 +166,8 @@ const welcomeString = 'Welcome to TypeScript'; // TypeScript infers the type as 
 let replyString = 'Hi'; // typeScript infers the type as string as it can be changed in let
 replyString = 'Hello';
 
+print({ welcomeString, replyString });
+
 let unionString: string | undefined;
 // unionString.length;Expected an assignment or function call and instead saw an expression.
 if (unionString) {
@@ -220,4 +226,5 @@ print(getArea(mySquare)); // Valid
 const myRectangle: Rectangle = { shape: 'rectangle', length: 6, breadth: 3 };
 print(getArea(myRectangle)); // Valid
 const myTriangle = { shape: 'triangle', base: 4, height: 5 }; // not part of Shape union type this is to test exhaustiveness
+print(myTriangle);
 // print(getArea(myTriangle)); // InValid Argument of type '{ shape: "triangle"; base: number; height: number; }' is not assignable to parameter of type 'Shape'.
