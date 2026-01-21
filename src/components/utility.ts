@@ -20,3 +20,24 @@ interface User {
 }
 const user1: Partials<User> = { name: 'Vinayak' };
 print(user1);
+
+/* Awaited Types */
+
+/* Awaited types are used in async functions to get the type of the resolved value from a promise */
+async function fetchUser() {
+  const response = await fetch('https://jsonplaceholder.typicode.com/users/1');
+  const data: Awaited<ReturnType<typeof response.json>> = await response.json();
+  return data;
+}
+
+fetchUser().then((user) => user);
+
+const promisedFunc: Promise<string> = new Promise((resolve, _reject) => {
+  setTimeout(() => {
+    resolve('Hello, World!');
+  }, 1000);
+});
+type AwaitedType = Awaited<typeof promisedFunc>;
+promisedFunc.then((message: AwaitedType) => {
+  print(message);
+});

@@ -21,6 +21,7 @@
     "lint-staged": "lint-staged"
   },
   "devDependencies": {
+    "@types/node": "^25.0.9",
     "@typescript-eslint/eslint-plugin": "^8.53.1",
     "@typescript-eslint/parser": "^8.53.1",
     "eslint": "^8.57.1",
