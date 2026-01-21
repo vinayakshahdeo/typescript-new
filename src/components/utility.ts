@@ -120,3 +120,14 @@ const contact1: ContactDetails = {
   email: 'bob@example.com',
 };
 print(contact1);
+
+/* Partial Types */
+/* Partial<Type> */
+/* Make all properties in type optional */
+
+type PartialPersonDetails = Partial<PersonDetails>;
+
+const person2: PartialPersonDetails = {
+  name: 'Charlie',
+};
+print(person2);
