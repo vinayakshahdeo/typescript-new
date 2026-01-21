@@ -159,4 +159,4 @@ const person4: Readonly<PersonDetails> = {
   email: 'eve@example.com',
 };
 // person4.name = 'Eva'; // Error: Cannot assign to 'name' because it is a read-only property
-console.log(person4);
+print(person4);
