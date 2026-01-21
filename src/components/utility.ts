@@ -160,3 +160,19 @@ const person4: Readonly<PersonDetails> = {
 };
 // person4.name = 'Eva'; // Error: Cannot assign to 'name' because it is a read-only property
 print(person4);
+
+/* String Manipulation Types */
+// Uppercase<String>
+type UppercaseName = Uppercase<'vinayak'>;
+const upperName: UppercaseName = 'VINAYAK';
+// lower case
+type LowercaseName = Lowercase<'VINAYAK'>;
+const lowerName: LowercaseName = 'vinayak';
+// Capitalize<String>
+type CapitalizedName = Capitalize<'vinayak'>;
+const capitalizedName: CapitalizedName = 'Vinayak';
+// Uncapitalize<String>
+type UncapitalizedName = Uncapitalize<'Vinayak'>;
+const uncapitalizedName: UncapitalizedName = 'vinayak';
+
+print(upperName, lowerName, capitalizedName, uncapitalizedName);
