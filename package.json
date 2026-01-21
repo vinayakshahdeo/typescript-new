@@ -17,7 +17,7 @@
   "scripts": {
     "prepare": "husky",
     "start:dev": "tsc -w",
-    "dev": "nodemon ./dist/advanced.js",
+    "dev": "nodemon ./dist/utility.js",
     "lint-staged": "lint-staged"
   },
   "devDependencies": {
