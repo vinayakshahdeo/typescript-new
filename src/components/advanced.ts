@@ -181,3 +181,43 @@ function geLength(value: string | number): number {
 print(geLength('Hello')); // Valid
 print(geLength(12345)); // Valid
 // print(geLength(true)); // InValid Argument of type 'boolean' is not assignable to parameter of type 'string | number'.
+/* Discriminated Unions And Exhaustiveness checking*/
+
+type Circle = {
+  shape: 'circle';
+  radius: number;
+};
+type Square = {
+  shape: 'square';
+  side: number;
+};
+type Rectangle = {
+  shape: 'rectangle';
+  length: number;
+  breadth: number;
+};
+type Shape = Circle | Square | Rectangle; //they all have shape in common which is called discriminant property
+
+function getArea(shape: Shape): number {
+  switch (shape.shape) {
+    case 'circle':
+      return Math.PI * shape.radius * shape.radius;
+    case 'square':
+      return shape.side * shape.side;
+    case 'rectangle':
+      return shape.length * shape.breadth;
+    default: {
+      const _exhaustiveCheck: never = shape;
+      throw new Error(`Unhandled shape type: ${_exhaustiveCheck}`);
+    }
+  }
+}
+
+const myCircle: Circle = { shape: 'circle', radius: 5 };
+print(getArea(myCircle)); // Valid
+const mySquare: Square = { shape: 'square', side: 4 };
+print(getArea(mySquare)); // Valid
+const myRectangle: Rectangle = { shape: 'rectangle', length: 6, breadth: 3 };
+print(getArea(myRectangle)); // Valid
+const myTriangle = { shape: 'triangle', base: 4, height: 5 }; // not part of Shape union type this is to test exhaustiveness
+// print(getArea(myTriangle)); // InValid Argument of type '{ shape: "triangle"; base: number; height: number; }' is not assignable to parameter of type 'Shape'.
