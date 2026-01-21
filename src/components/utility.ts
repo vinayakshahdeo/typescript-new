@@ -1,12 +1,12 @@
 /* Utility Types */
 /* Pre Defined generic types and help and create or modify new types from existing types */
-function print<T extends unknown[]>(...params: T): void {
-  console.log(...params);
-}
-
-// function print<T extends unknown[]>(...params: T): T {
-// 	return params;
+// function print<T extends unknown[]>(...params: T): void {
+// 	console.log(...params);
 // }
+
+function print<T extends unknown[]>(...params: T): T {
+  return params;
+}
 
 /* Partial Types */
 
@@ -176,3 +176,18 @@ type UncapitalizedName = Uncapitalize<'Vinayak'>;
 const uncapitalizedName: UncapitalizedName = 'vinayak';
 
 print(upperName, lowerName, capitalizedName, uncapitalizedName);
+
+/* Satisfies */
+type Properties = 'red' | 'green' | 'blue';
+type RGB = [red: number, green: number, blue: number];
+// const color: Record<Properties, RGB | string> = {
+const color = {
+  red: [255, 0, 0],
+  green: [0, 255, 0],
+  blue: 'blue',
+} satisfies Record<Properties, RGB | string>;
+
+const redColor = color.red[0]; // 255
+const blueColor = color.blue.toLowerCase(); // BLUE
+
+print(redColor, blueColor);
