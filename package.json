@@ -17,10 +17,11 @@
   "scripts": {
     "prepare": "husky",
     "start:dev": "tsc -w",
-    "dev": "nodemon ./dist/advanced.js",
+    "dev": "nodemon ./dist/utility.js",
     "lint-staged": "lint-staged"
   },
   "devDependencies": {
+    "@types/node": "^25.0.9",
     "@typescript-eslint/eslint-plugin": "^8.53.1",
     "@typescript-eslint/parser": "^8.53.1",
     "eslint": "^8.57.1",
