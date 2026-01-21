@@ -1,8 +1,12 @@
 /* Utility Types */
 /* Pre Defined generic types and help and create or modify new types from existing types */
-function print<T extends unknown[]>(...params: T): T {
-  return params;
+function print<T extends unknown[]>(...params: T): void {
+  console.log(...params);
 }
+
+// function print<T extends unknown[]>(...params: T): T {
+// 	return params;
+// }
 
 /* Partial Types */
 
@@ -83,3 +87,22 @@ const article: Article = {
   },
 };
 print(article);
+
+/* Pick types */
+/* Pick<Type, Keys> */
+/* pick the properties from type that are specified in keys */
+
+interface PersonDetails {
+  name: string;
+  age: number;
+  address: string;
+  phone: string;
+  email: string;
+}
+type NameAndAge = Pick<PersonDetails, 'name' | 'age'>;
+
+const person1: NameAndAge = {
+  name: 'Alice',
+  age: 30,
+};
+print(person1);
