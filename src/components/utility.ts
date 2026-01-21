@@ -99,10 +99,24 @@ interface PersonDetails {
   phone: string;
   email: string;
 }
-type NameAndAge = Pick<PersonDetails, 'name' | 'age'>;
+type NameAndAge = Readonly<Pick<PersonDetails, 'name' | 'age'>>;
 
 const person1: NameAndAge = {
   name: 'Alice',
   age: 30,
 };
+// person1.name = 'Bob'; // Error: Cannot assign to 'name' because it is a read-only property
 print(person1);
+
+/*  Omit Types  */
+/* Omit<Type, Keys> */
+/* Omit the properties from type that are specified in keys */
+
+type ContactDetails = Omit<PersonDetails, 'address' | 'phone'>;
+
+const contact1: ContactDetails = {
+  name: 'Bob',
+  age: 25,
+  email: 'bob@example.com',
+};
+print(contact1);
