@@ -167,3 +167,17 @@ let unionString: string | undefined;
 if (unionString) {
   print(unionString.length); // Type narrowing now we know unionString is string
 }
+
+/* Totality  */
+
+function geLength(value: string | number): number {
+  if (typeof value === 'string') {
+    return value.length;
+  } else {
+    return value.toString().length; // handling number case this is totality as a function handles all possible input types and doesn't result in runtime error
+  }
+}
+
+print(geLength('Hello')); // Valid
+print(geLength(12345)); // Valid
+// print(geLength(true)); // InValid Argument of type 'boolean' is not assignable to parameter of type 'string | number'.
