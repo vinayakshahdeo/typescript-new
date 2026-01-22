@@ -118,3 +118,21 @@ type OptionalNameUser = OptionIfString<User>;
 
 const optionalNameUser: OptionalNameUser = { id: 4, age: 35, name: undefined };
 print(optionalNameUser);
+
+/* Template Literal Types */
+/* TypeScript allows you to create a new type by combining existing types using template literal types.  */
+
+type Status = 'success' | 'error' | 'loading';
+type StatusMessage = `Status is: ${Status}`; //pass the type as value in template literal
+
+const successMessage: StatusMessage = 'Status is: success';
+const errorMessage: StatusMessage = 'Status is: error';
+const loadingMessage: StatusMessage = 'Status is: loading';
+
+print({ successMessage, errorMessage, loadingMessage });
+
+type RGB = `rgb(${number}, ${number}, ${number})`;
+
+const color1: RGB = 'rgb(255, 0, 0)';
+const color2: RGB = 'rgb(0, 255, 0)';
+// const color3: RGB = 'rgb(0, 0, 255, 1)';//Type '"rgb(0, 0, 255, 1)"' is not assignable to type '`rgb(${number}, ${number}, ${number})`'.
