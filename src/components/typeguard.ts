@@ -44,3 +44,31 @@ const person2: Person = { name: 'Bob' };
 
 printAge(person1);
 printAge(person2);
+
+/* Equality Narrowing  */
+
+type Circle = {
+  kind: 'circle';
+  radius: number;
+};
+
+type Square = {
+  kind: 'square';
+  sideLength: number;
+};
+
+type Shape = Circle | Square;
+
+function getArea(shape: Shape): number {
+  if (shape.kind === 'circle') {
+    return Math.PI * shape.radius * shape.radius;
+  } else {
+    return shape.sideLength ** 2;
+  }
+}
+
+const myCircle: Circle = { kind: 'circle', radius: 5 };
+const mySquare: Square = { kind: 'square', sideLength: 4 };
+
+print('Area of circle:', getArea(myCircle));
+print('Area of square:', getArea(mySquare));
