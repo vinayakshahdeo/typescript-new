@@ -72,3 +72,12 @@ type ReturnUserType = ReturnType<typeof getUser>;
 
 const anotherUser: ReturnUserType = getUser();
 print(anotherUser);
+
+/* Indexed access types */
+/* Used for accessing the properties of an object */
+
+type UserNameType = User['name']; // string
+type UserIdType = User['id']; // number
+
+const names: UserNameType = getProperty(user, 'name');
+print(names);
