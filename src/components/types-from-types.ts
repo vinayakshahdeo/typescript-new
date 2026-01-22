@@ -60,4 +60,15 @@ for (const key of keys) {
 // }
 
 /* type of */
-/* type of */
+/* type of operator is used to get the type of a variable or expression */
+
+type UserType = typeof user;
+
+function getUser(): UserType {
+  return { id: 2, name: 'Jane', age: 25 };
+}
+
+type ReturnUserType = ReturnType<typeof getUser>;
+
+const anotherUser: ReturnUserType = getUser();
+print(anotherUser);
