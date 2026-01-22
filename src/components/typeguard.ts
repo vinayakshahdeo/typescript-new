@@ -72,3 +72,14 @@ const mySquare: Square = { kind: 'square', sideLength: 4 };
 
 print('Area of circle:', getArea(myCircle));
 print('Area of square:', getArea(mySquare));
+
+/* In Operator Narrowing */
+function getAreas(shape: Shape): number {
+  if ('radius' in shape) {
+    return Math.PI * shape.radius * shape.radius;
+  } else {
+    return shape.sideLength ** 2;
+  }
+}
+print('Area of circle using in operator:', getAreas(myCircle));
+print('Area of square using in operator:', getAreas(mySquare));
