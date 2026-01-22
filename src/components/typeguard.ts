@@ -83,3 +83,69 @@ function getAreas(shape: Shape): number {
 }
 print('Area of circle using in operator:', getAreas(myCircle));
 print('Area of square using in operator:', getAreas(mySquare));
+
+/* Instance Of TypeGuards */
+
+abstract class Product {
+  constructor(
+    public price: number,
+    public name: string
+  ) {}
+  abstract getPrice(): number;
+}
+
+class Electronics extends Product {
+  constructor(
+    price: number,
+    name: string,
+    public warranty: number
+  ) {
+    super(price, name);
+  }
+  getPrice(): number {
+    return this.price;
+  }
+  getWarranty(): number {
+    return this.warranty;
+  }
+  getName(): string {
+    return this.name;
+  }
+}
+class Clothing extends Product {
+  constructor(
+    price: number,
+    name: string,
+    public size: string,
+    public material: string
+  ) {
+    super(price, name);
+  }
+  getPrice(): number {
+    return this.price;
+  }
+  getSize(): string {
+    return this.size;
+  }
+  getMaterial(): string {
+    return this.material;
+  }
+}
+
+function printProductDetails(product: Product): void {
+  print(`Product Name: ${product.name}`);
+  print(`Product Price: $${product.getPrice()}`);
+
+  if (product instanceof Electronics) {
+    print(`Warranty: ${product.getWarranty()} years`);
+  } else if (product instanceof Clothing) {
+    print(`Size: ${product.getSize()}`);
+    print(`Material: ${product.getMaterial()}`);
+  }
+}
+
+const laptop = new Electronics(1200, 'Laptop', 2);
+const tshirt = new Clothing(20, 'T-Shirt', 'M', 'Cotton');
+
+printProductDetails(laptop);
+printProductDetails(tshirt);
