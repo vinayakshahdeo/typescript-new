@@ -17,7 +17,7 @@
   "scripts": {
     "prepare": "husky",
     "start:dev": "tsc -w",
-    "dev": "nodemon ./dist/typeguard.js",
+    "dev": "nodemon ./dist/namespace.js",
     "lint-staged": "lint-staged"
   },
   "devDependencies": {
