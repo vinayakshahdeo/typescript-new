@@ -81,3 +81,21 @@ type UserIdType = User['id']; // number
 
 const names: UserNameType = getProperty(user, 'name');
 print(names);
+
+/* Mapped Types */
+/* Mapped types are used to create new types based on existing types by transforming each property in the original type */
+
+type PartialUser = {
+  [P in keyof User]?: User[P];
+};
+
+const partialUser: PartialUser = { name: 'Partial John' };
+print(partialUser);
+
+type ReadonlyUser = {
+  readonly [P in keyof User]: User[P];
+};
+
+const readonlyUser: ReadonlyUser = { id: 3, name: 'Readonly Jane', age: 28 };
+// readonlyUser.name = 'New Name';Cannot assign to 'name' because it is a read-only property.
+print(readonlyUser);
