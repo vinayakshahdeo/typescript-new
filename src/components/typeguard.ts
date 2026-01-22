@@ -23,3 +23,24 @@ function printStrings(string: string | string[] | null): void {
 printStrings('Hello, Type Guards!');
 printStrings(['Hello', 'Type', 'Guards']);
 printStrings(null);
+
+/* Truthiness Narrowing */
+type Person = {
+  name: string;
+  age?: number;
+};
+
+function printAge(person: Person): void {
+  if (person.age) {
+    //typescript infers that age is number here
+    print(`${person.name} is ${person.age} years old.`);
+  } else {
+    print(`${person.name}'s age is unknown.`);
+  }
+}
+
+const person1: Person = { name: 'Alice', age: 30 };
+const person2: Person = { name: 'Bob' };
+
+printAge(person1);
+printAge(person2);
