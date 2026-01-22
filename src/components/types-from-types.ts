@@ -99,3 +99,22 @@ type ReadonlyUser = {
 const readonlyUser: ReadonlyUser = { id: 3, name: 'Readonly Jane', age: 28 };
 // readonlyUser.name = 'New Name';Cannot assign to 'name' because it is a read-only property.
 print(readonlyUser);
+
+/* Conditional Types */
+type IsString<T> = T extends string ? 'Yes' : 'No';
+
+type Test1 = IsString<string>; // 'Yes'
+type Test2 = IsString<number>; // 'No'
+
+const test1: Test1 = 'Yes';
+const test2: Test2 = 'No';
+print(test1, test2);
+
+type OptionIfString<T> = {
+  [k in keyof T]: T[k] extends string ? T[k] | undefined : T[k];
+};
+
+type OptionalNameUser = OptionIfString<User>;
+
+const optionalNameUser: OptionalNameUser = { id: 4, age: 35, name: undefined };
+print(optionalNameUser);
