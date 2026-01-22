@@ -17,7 +17,7 @@
   "scripts": {
     "prepare": "husky",
     "start:dev": "tsc -w",
-    "dev": "nodemon ./dist/utility.js",
+    "dev": "nodemon ./dist/types-from-types.js",
     "lint-staged": "lint-staged"
   },
   "devDependencies": {
