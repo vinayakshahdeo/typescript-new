@@ -5,6 +5,10 @@ Example:
     "git commit -m <message> --no-verify"
 '
 
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"
+
 npm run lint-staged || {
   echo "ERROR: Linting issues were found in the committed files. Please address them before proceeding."
   exit 1

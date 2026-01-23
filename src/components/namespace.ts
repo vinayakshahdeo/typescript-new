@@ -5,3 +5,24 @@ function prints<T extends unknown[]>(...params: T): void {
 // function prints<T extends unknown[]>(...params: T): T {
 // 	return params;
 // }
+/* A namespace is a way to organize related modules or groups of functions, interfaces, and classes into logical namespaces that prevent name collisions with other parts of your application. */
+
+namespace MathUtils {
+  export function add(a: number, b: number): number {
+    return a + b;
+  }
+
+  export function subtract(a: number, b: number): number {
+    return a - b;
+  }
+}
+
+namespace StringUtils {
+  export function add(a: string, b: string): string {
+    return a + b;
+  }
+
+  export function subtract(a: string, b: string): string {
+    return a.replace(b, '');
+  }
+}
