@@ -1,3 +1,13 @@
+namespace CommonUtils {
+  export function print<T extends unknown[]>(...params: T): void {
+    console.log(...params);
+  }
+
+  // function prints<T extends unknown[]>(...params: T): T {
+  // 	return params;
+  // }
+}
+
 /* A namespace is a way to organize related modules or groups of functions, interfaces, and classes into logical namespaces that prevent name collisions with other parts of your application. */
 
 namespace MathUtils {
@@ -23,6 +33,6 @@ namespace StringUtils {
 
 const sum = MathUtils.add(10, 20);
 const combined = StringUtils.add('Hello', ' world!');
-// prints(sum, combined);
+CommonUtils.print(sum, combined);
 
 //typescript namespaces are used with decalaration files
