@@ -74,3 +74,18 @@ const sum = MathUtils.add(10, 20);
 const combined = StringUtils.add('Hello', ' world!');
 
 PrintUtils.print(sum, combined, 'from printutils');
+
+interface AddOutput {
+  sum: number;
+  class: string;
+}
+class MathUtils2 {
+  static add(a: number, b: number): AddOutput {
+    return { sum: a + b, class: 'MathUtils' };
+  }
+
+  static subtract(a: number, b: number): number {
+    return a - b;
+  }
+}
+MathUtils2.add(3, 6);
