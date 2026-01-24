@@ -26,3 +26,10 @@ namespace StringUtils {
     return a.replace(b, '');
   }
 }
+//make changes to tsconfig such that you have outfile set which doesnt work with other options for some reason
+
+const sum = MathUtils.add(10, 20);
+const combined = StringUtils.add('Hello', ' world!');
+prints(sum, combined);
+
+//typescript namespaces are used with decalaration files
