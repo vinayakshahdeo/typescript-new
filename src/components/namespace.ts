@@ -37,7 +37,7 @@ CommonUtils.print(sum, combined);
 
 //typescript namespaces are used with decalaration files
 
-/* making namespace in js */
+/* making namespace in js and the file will be in js*/
 
 class PrintUtils {
   static print<T extends unknown[]>(...params: T): void {
