@@ -89,3 +89,5 @@ class MathUtils2 {
   }
 }
 MathUtils2.add(3, 6);
+
+/* Mixed Module Interoperability */
