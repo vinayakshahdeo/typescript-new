@@ -91,3 +91,10 @@ class MathUtils2 {
 MathUtils2.add(3, 6);
 
 /* Mixed Module Interoperability */
+
+function printHello() {
+  console.log('Hello World!');
+}
+
+// export { printHello };
+// import printHello = require('./pathtoprinthello');
