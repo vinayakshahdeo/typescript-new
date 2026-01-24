@@ -23,6 +23,7 @@
         "ts-expect-error": true
       }
     ],
+    "@typescript-eslint/no-namespace": "off",
     "semi": ["error", "always"],
     "quotes": ["error", "single"],
     "no-unused-vars": "warn",
