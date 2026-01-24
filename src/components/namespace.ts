@@ -36,3 +36,19 @@ const combined = StringUtils.add('Hello', ' world!');
 CommonUtils.print(sum, combined);
 
 //typescript namespaces are used with decalaration files
+
+/* making namespace in js */
+
+class PrintUtils {
+  static print<T extends unknown[]>(...params: T): void {
+    console.log(...params);
+  }
+
+  // function prints<T extends unknown[]>(...params: T): T {
+  // 	return params;
+  // }
+}
+
+// no need to use typescript reference and use import for importing files
+
+PrintUtils.print(sum, combined, 'from printutils');
