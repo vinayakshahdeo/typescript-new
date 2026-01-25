@@ -5,7 +5,7 @@
   //   "include": ["src/components"],
   "compilerOptions": {
     // File Layout
-    "rootDir": "./src/components",
+    // "rootDir": "./src/components",
     "outDir": "./dist",
     "noEmitOnError": true,
     // Environment Settings
@@ -36,9 +36,10 @@
     // "noPropertyAccessFromIndexSignature": true,
 
     // Recommended Options
+    "allowJs": true,
     "strict": true,
     "jsx": "react-jsx",
-    "verbatimModuleSyntax": true,
+    // "verbatimModuleSyntax": true,
     "isolatedModules": true,
     "noUncheckedSideEffectImports": true,
     "moduleDetection": "force",

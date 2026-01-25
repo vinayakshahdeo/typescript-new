@@ -17,7 +17,7 @@
   "scripts": {
     "prepare": "husky",
     "start:dev": "tsc -w",
-    "dev": "nodemon ./dist/declarationFiles.js",
+    "dev": "nodemon ./dist/src/components/declarationFiles.js",
     "lint-staged": "lint-staged"
   },
   "devDependencies": {
