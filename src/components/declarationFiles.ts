@@ -1,6 +1,6 @@
 import { add } from '../js/declared.js';
-import { AdminUser } from '../js/user.js';
-import { User } from '../js/user.js';
+// import { AdminUser } from '../js/user.js';
+// import { User } from '../js/user.js';
 
 // Here's an example of a declaration file for a hypothetical `math` library:
 
@@ -32,10 +32,10 @@ function print<T extends unknown[]>(...params: T): void {
 // }
 //create a .d.ts file with js file name and export it so that when js function when imported in ts file will be able to use it
 
-// print(add(2, 6));
-// print(add(2, ' vinayak'));
-// print('vinayak ', 2);
-// print('vinayak', ' shahdeo');
+print(add(2, 6));
+print(add(2, ' vinayak'));
+print('vinayak ', 2);
+print('vinayak', ' shahdeo');
 
 // const newUser = User.createUser(10, 'Vinayak Shahdeo');
 // print(newUser);
@@ -44,7 +44,11 @@ function print<T extends unknown[]>(...params: T): void {
 
 /* declaration for js classes */
 
-const newUser = new AdminUser();
-newUser.createUser('vinayak');
-print(newUser);
-newUser.showGreeting();
+// const newUser = new AdminUser();
+// newUser.createUser('vinayak');
+// print(newUser);
+// newUser.showGreeting();
+
+/* Ambient Declartions */
+// const user = AuthService.login('user', 'password');
+// console.log(AuthService);
