@@ -32,4 +32,7 @@ function print<T extends unknown[]>(...params: T): void {
 //create a .d.ts file with js file name and export it so that when js function when imported in ts file will be able to use it
 
 print(add(2, 6));
+print(add(2, ' vinayak'));
+print('vinayak ', 2);
+print('vinayak', ' shahdeo');
 print(createUserProfile(10, 'John'));
