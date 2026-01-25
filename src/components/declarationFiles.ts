@@ -1,5 +1,5 @@
 import { add } from '../js/declared.js';
-import { createUserProfile } from '../js/user.js';
+import { User } from '../js/user.js';
 
 // Here's an example of a declaration file for a hypothetical `math` library:
 
@@ -35,4 +35,8 @@ print(add(2, 6));
 print(add(2, ' vinayak'));
 print('vinayak ', 2);
 print('vinayak', ' shahdeo');
-print(createUserProfile(10, 'John'));
+
+const newUser = User.createUser(10, 'Vinayak Shahdeo');
+print(newUser);
+const secondUser = User.updateUser(1, newUser);
+print(secondUser);
