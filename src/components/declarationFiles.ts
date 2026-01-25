@@ -52,3 +52,7 @@ print('vinayak', ' shahdeo');
 /* Ambient Declartions */
 // const user = AuthService.login('user', 'password');
 // console.log(AuthService);
+
+/* @types packages */
+
+/* used for express and completions in typescript */
