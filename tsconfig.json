@@ -1,5 +1,4 @@
 {
-  // Visit https://aka.ms/tsconfig to read more about this file
   //exclude property is used to exclude files from compilation
   //   "exclude": ["app.ts", "node_modules", "dist", "*.exclude.ts", "**/*.exclude.ts"],
   //   "include" property is used to include files for compilation
